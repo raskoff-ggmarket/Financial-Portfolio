@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
   <meta name="theme-color" content="#080e1a"/>
-  <title>QuantEdge</title>
+  <title>QuantEdge — BIST Portföyü</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -19,7 +19,6 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .brand{display:flex;align-items:center;gap:8px}
 .brand-icon{width:30px;height:30px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.28);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .brand-name{font-size:16px;font-weight:800}
-.page-title{font-size:16px;font-weight:700;display:none}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .live-pill{display:flex;align-items:center;gap:5px;background:rgba(16,185,129,.14);border:1px solid rgba(16,185,129,.25);border-radius:99px;padding:3px 9px;font-size:10px;font-weight:700;letter-spacing:.8px;color:#10b981}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:pulse 1.8s ease infinite}
@@ -43,16 +42,16 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .hero-card{background:linear-gradient(145deg,#13233b,#0e1d2f,#091523);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 18px 18px;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1),transparent 65%);pointer-events:none}
 .hero-label{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.hero-value{font-size:40px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:12px}
-.hero-dollar{font-size:24px;font-weight:600;color:#94a3b8;vertical-align:top;margin-top:6px;display:inline-block}
-.hero-dec{font-size:22px;font-weight:600;color:#94a3b8}
+.hero-value{font-size:36px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:12px}
+.hero-dollar{font-size:20px;font-weight:600;color:#94a3b8;vertical-align:top;margin-top:5px;display:inline-block}
+.hero-dec{font-size:20px;font-weight:600;color:#94a3b8}
 .hero-change{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .hero-date{font-size:11.5px;color:#94a3b8}
 .hero-stats{display:flex;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 4px;border-top:1px solid rgba(255,255,255,.07)}
 .hs{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
-.hs-v{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.hs-v{font-size:14px;font-weight:800;letter-spacing:-.3px}
 .hs-v.green{color:#10b981}
-.hs-l{font-size:10px;color:#94a3b8;font-weight:500}
+.hs-l{font-size:9.5px;color:#94a3b8;font-weight:500;text-align:center}
 .hdiv{width:1px;height:28px;background:rgba(255,255,255,.07);flex-shrink:0}
 
 /* PILLS */
@@ -64,7 +63,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
 /* TICKER */
 .ticker-wrap{overflow:hidden;background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.ticker-inner{display:flex;width:max-content;animation:ticker 22s linear infinite}
+.ticker-inner{display:flex;width:max-content;animation:ticker 24s linear infinite}
 .tk{padding:0 20px;font-size:12px;color:#94a3b8;border-right:1px solid rgba(255,255,255,.07);white-space:nowrap;display:flex;align-items:center;gap:5px}
 .tk b{color:#f1f5f9;font-weight:600}.tk em{font-style:normal;font-weight:700}
 .g{color:#10b981}.r{color:#f43f5e}
@@ -88,7 +87,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .mcard{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:7px}
 .mcard-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
 .ic-a{background:rgba(245,158,11,.14)}.ic-g{background:rgba(16,185,129,.14)}.ic-b{background:rgba(59,130,246,.14)}.ic-r{background:rgba(244,63,94,.14)}
-.mcard-val{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.mcard-val{font-size:19px;font-weight:800;letter-spacing:-.5px}
 .mcard-val.green{color:#10b981}.mcard-val.red{color:#f43f5e}
 .mcard-lbl{font-size:11px;color:#94a3b8;font-weight:500}
 
@@ -159,9 +158,6 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .watch-right{text-align:right}
 .watch-price{font-size:14px;font-weight:700}
 .watch-chg{font-size:12px;font-weight:600;margin-top:2px}
-.watch-alert{width:32px;height:32px;background:#162236;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#94a3b8;flex-shrink:0;cursor:pointer;border:none}
-.watch-alert:active{background:#1e2e45}
-.watch-alert.on{background:rgba(245,158,11,.14);color:#f59e0b}
 
 /* SETTINGS PAGE */
 .settings-section{margin-bottom:20px}
@@ -195,6 +191,9 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .perf-label{font-size:13px;color:#94a3b8}
 .perf-val{font-size:13px;font-weight:700}
 
+/* FUND BADGE */
+.fund-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;background:rgba(59,130,246,.14);color:#3b82f6;margin-left:4px;vertical-align:middle}
+
 @media(min-width:640px){
   .page{padding:20px;gap:16px;max-width:600px}
   .chart-box{height:220px}
@@ -215,7 +214,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
     <span class="brand-name">QuantEdge</span>
   </div>
   <div class="topbar-right">
-    <div class="live-pill"><span class="live-dot"></span>LIVE</div>
+    <div class="live-pill"><span class="live-dot"></span>CANLI</div>
     <button class="icon-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
       <span class="notif-dot">3</span>
@@ -228,58 +227,60 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 <div class="page active" id="pg-home">
 
   <section class="hero-card">
-    <p class="hero-label">Total Portfolio</p>
-    <div class="hero-value"><span class="hero-dollar">$</span>847,392<span class="hero-dec">.50</span></div>
+    <p class="hero-label">Toplam Portföy Değeri</p>
+    <div class="hero-value"><span class="hero-dollar">₺</span>2.847.392<span class="hero-dec">,50</span></div>
     <div class="hero-change">
-      <span class="pill p-green">▲ +$12,847 · +1.54%</span>
-      <span class="hero-date">Today, Jun 14</span>
+      <span class="pill p-green">▲ +₺42.847 · +1,53%</span>
+      <span class="hero-date">Bugün, 14 Haz</span>
     </div>
     <div class="hero-stats">
-      <div class="hs"><span class="hs-v green">+21.08%</span><span class="hs-l">Return</span></div>
+      <div class="hs"><span class="hs-v green">+22,4%</span><span class="hs-l">Getiri</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v green">8.74%</span><span class="hs-l">Yield p.a.</span></div>
+      <div class="hs"><span class="hs-v green">14,8%</span><span class="hs-l">Yıllık %</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v">1.87</span><span class="hs-l">Sharpe</span></div>
+      <div class="hs"><span class="hs-v">1.74</span><span class="hs-l">Sharpe</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v">0.92</span><span class="hs-l">Beta</span></div>
+      <div class="hs"><span class="hs-v">0.88</span><span class="hs-l">Beta</span></div>
     </div>
   </section>
 
   <div class="ticker-wrap">
     <div class="ticker-inner" id="ticker">
-      <span class="tk"><b>S&amp;P 500</b> 5,847 <em class="g">+1.24%</em></span>
-      <span class="tk"><b>NASDAQ</b> 18,934 <em class="g">+0.87%</em></span>
-      <span class="tk"><b>DOW</b> 42,156 <em class="r">−0.31%</em></span>
-      <span class="tk"><b>BTC</b> $104,230 <em class="g">+2.14%</em></span>
-      <span class="tk"><b>GOLD</b> $3,342 <em class="g">+0.52%</em></span>
-      <span class="tk"><b>VIX</b> 18.42 <em class="r">+5.21%</em></span>
+      <span class="tk"><b>BIST 100</b> 10.842 <em class="g">+1,34%</em></span>
+      <span class="tk"><b>BIST 30</b> 11.248 <em class="g">+0,98%</em></span>
+      <span class="tk"><b>USD/TRY</b> 38,42 <em class="r">+0,28%</em></span>
+      <span class="tk"><b>THYAO</b> ₺1.240 <em class="g">+2,34%</em></span>
+      <span class="tk"><b>ALTIN</b> ₺4.124 <em class="g">+0,52%</em></span>
+      <span class="tk"><b>ASELS</b> ₺1.580 <em class="g">+3,42%</em></span>
+      <span class="tk"><b>BTC</b> $104.230 <em class="g">+2,14%</em></span>
+      <span class="tk"><b>EUR/TRY</b> 41,84 <em class="r">+0,15%</em></span>
     </div>
   </div>
 
   <div class="period-row">
-    <button class="per active">1W</button><button class="per">1M</button><button class="per">3M</button><button class="per">6M</button><button class="per">1Y</button><button class="per">ALL</button>
+    <button class="per active">1H</button><button class="per">1A</button><button class="per">3A</button><button class="per">6A</button><button class="per">1Y</button><button class="per">TÜM</button>
   </div>
 
   <div class="card">
     <div class="card-row" style="margin-bottom:14px">
-      <div><div style="font-size:14px;font-weight:700">Performance</div><div class="card-sub">vs S&amp;P 500 benchmark</div></div>
+      <div><div style="font-size:14px;font-weight:700">Performans</div><div class="card-sub">BIST 100 kıyaslaması</div></div>
       <div class="legend">
-        <span class="leg"><i style="background:#f59e0b"></i>Portfolio</span>
-        <span class="leg"><i style="background:#475569"></i>Bench</span>
+        <span class="leg"><i style="background:#f59e0b"></i>Portföy</span>
+        <span class="leg"><i style="background:#475569"></i>BIST 100</span>
       </div>
     </div>
     <div class="chart-box"><canvas id="perfChart"></canvas></div>
   </div>
 
   <div class="metrics-grid">
-    <div class="mcard"><div class="mcard-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mcard-val green">+$147K</div><div class="mcard-lbl">Total Return</div></div>
-    <div class="mcard"><div class="mcard-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="mcard-val green">8.74%</div><div class="mcard-lbl">Annual Yield</div></div>
-    <div class="mcard"><div class="mcard-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mcard-val">1.87</div><div class="mcard-lbl">Sharpe Ratio</div></div>
-    <div class="mcard"><div class="mcard-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mcard-val red">−8.34%</div><div class="mcard-lbl">Max Drawdown</div></div>
+    <div class="mcard"><div class="mcard-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mcard-val green">+₺512B</div><div class="mcard-lbl">Toplam Kazanç</div></div>
+    <div class="mcard"><div class="mcard-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="mcard-val green">14,8%</div><div class="mcard-lbl">Yıllık Getiri</div></div>
+    <div class="mcard"><div class="mcard-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mcard-val">1.74</div><div class="mcard-lbl">Sharpe Oranı</div></div>
+    <div class="mcard"><div class="mcard-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mcard-val red">−12,8%</div><div class="mcard-lbl">Maks. Düşüş</div></div>
   </div>
 
   <div class="card">
-    <div class="card-row"><div style="font-size:14px;font-weight:700">Recent Activity</div><a class="link-sm" href="#">See all</a></div>
+    <div class="card-row"><div style="font-size:14px;font-weight:700">Son İşlemler</div><a class="link-sm" href="#">Tümü</a></div>
     <div class="acts" id="acts-home"></div>
   </div>
 
@@ -290,40 +291,40 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
   <div class="card">
     <div class="card-row" style="margin-bottom:14px">
-      <div style="font-size:14px;font-weight:700">Holdings</div>
+      <div style="font-size:14px;font-weight:700">Hisseler &amp; Fonlar</div>
       <div class="search-row" style="flex:1;max-width:220px">
-        <input class="search-inp" id="hsearch" type="text" placeholder="Search…"/>
+        <input class="search-inp" id="hsearch" type="text" placeholder="Ara…"/>
       </div>
     </div>
     <div class="table-wrap">
       <table class="htbl" id="htbl">
-        <thead><tr><th>Asset</th><th class="tr">Price</th><th class="tr">1D%</th><th class="tr">Value</th></tr></thead>
+        <thead><tr><th>Varlık</th><th class="tr">Fiyat</th><th class="tr">1G%</th><th class="tr">Değer</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 
   <div class="card">
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Allocation</div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Sektör Dağılımı</div>
     <div class="donut-area">
       <canvas id="donut" width="140" height="140"></canvas>
-      <div class="donut-lbl"><div class="dl-v">$847K</div><div class="dl-s">Total</div></div>
+      <div class="donut-lbl"><div class="dl-v">₺2,8M</div><div class="dl-s">Toplam</div></div>
     </div>
     <div class="alloc-rows" id="allocRows"></div>
   </div>
 
   <div class="card">
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Performance Summary</div>
-    <div class="perf-row"><span class="perf-label">Cost Basis</span><span class="perf-val">$700,000</span></div>
-    <div class="perf-row"><span class="perf-label">Current Value</span><span class="perf-val">$847,392</span></div>
-    <div class="perf-row"><span class="perf-label">Total Gain</span><span class="perf-val" style="color:#10b981">+$147,392</span></div>
-    <div class="perf-row"><span class="perf-label">Total Return</span><span class="perf-val" style="color:#10b981">+21.08%</span></div>
-    <div class="perf-row"><span class="perf-label">Day Gain</span><span class="perf-val" style="color:#10b981">+$12,847</span></div>
-    <div class="perf-row"><span class="perf-label">Dividend Income (YTD)</span><span class="perf-val">$4,230</span></div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Performans Özeti</div>
+    <div class="perf-row"><span class="perf-label">Ortalama Maliyet</span><span class="perf-val">₺2.328.400</span></div>
+    <div class="perf-row"><span class="perf-label">Güncel Değer</span><span class="perf-val">₺2.847.392</span></div>
+    <div class="perf-row"><span class="perf-label">Toplam Kazanç</span><span class="perf-val" style="color:#10b981">+₺518.992</span></div>
+    <div class="perf-row"><span class="perf-label">Toplam Getiri</span><span class="perf-val" style="color:#10b981">+22,30%</span></div>
+    <div class="perf-row"><span class="perf-label">Günlük Kazanç</span><span class="perf-val" style="color:#10b981">+₺42.847</span></div>
+    <div class="perf-row"><span class="perf-label">Temettü Geliri (YTD)</span><span class="perf-val">₺84.320</span></div>
   </div>
 
   <div class="card">
-    <div style="font-size:14px;font-weight:700;margin-bottom:16px">Risk Metrics</div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:16px">Risk Metrikleri</div>
     <div class="risk-grid" id="riskGrid"></div>
   </div>
 
@@ -333,44 +334,54 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 <div class="page" id="pg-markets">
 
   <div class="card">
-    <div class="section-label">Indices</div>
+    <div class="section-label">BIST Endeksleri</div>
     <div class="mkt-grid">
-      <div class="mkt-item"><div class="mkt-sym">S&amp;P 500</div><div class="mkt-price">5,847</div><div class="mkt-chg g">+1.24%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">NASDAQ</div><div class="mkt-price">18,934</div><div class="mkt-chg g">+0.87%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">DOW</div><div class="mkt-price">42,156</div><div class="mkt-chg r">−0.31%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">RUSSELL 2K</div><div class="mkt-price">2,043</div><div class="mkt-chg g">+0.55%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">VIX</div><div class="mkt-price">18.42</div><div class="mkt-chg r">+5.21%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">DAX</div><div class="mkt-price">18,720</div><div class="mkt-chg g">+0.43%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST 100</div><div class="mkt-price">10.842</div><div class="mkt-chg g">+1,34%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST 30</div><div class="mkt-price">11.248</div><div class="mkt-chg g">+0,98%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST BNK</div><div class="mkt-price">22.845</div><div class="mkt-chg g">+2,14%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST SAV</div><div class="mkt-price">8.934</div><div class="mkt-chg g">+1,87%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST XUSIN</div><div class="mkt-price">7.421</div><div class="mkt-chg r">−0,44%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BIST XGIDA</div><div class="mkt-price">6.382</div><div class="mkt-chg g">+0,67%</div></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="section-label">Crypto</div>
+    <div class="section-label">Döviz</div>
     <div class="mkt-grid">
-      <div class="mkt-item"><div class="mkt-sym">BTC</div><div class="mkt-price">$104,230</div><div class="mkt-chg g">+2.14%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">ETH</div><div class="mkt-price">$3,847</div><div class="mkt-chg g">+1.88%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">SOL</div><div class="mkt-price">$178.40</div><div class="mkt-chg g">+3.21%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">BNB</div><div class="mkt-price">$682</div><div class="mkt-chg r">−0.44%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">USD/TRY</div><div class="mkt-price">38,42</div><div class="mkt-chg r">+0,28%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">EUR/TRY</div><div class="mkt-price">41,84</div><div class="mkt-chg r">+0,15%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">GBP/TRY</div><div class="mkt-price">48,92</div><div class="mkt-chg r">+0,31%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">CHF/TRY</div><div class="mkt-price">44,18</div><div class="mkt-chg g">−0,12%</div></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="section-label">Commodities</div>
+    <div class="section-label">Emtia</div>
     <div class="mkt-grid">
-      <div class="mkt-item"><div class="mkt-sym">GOLD</div><div class="mkt-price">$3,342</div><div class="mkt-chg g">+0.52%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">SILVER</div><div class="mkt-price">$32.84</div><div class="mkt-chg g">+0.78%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">CRUDE OIL</div><div class="mkt-price">$71.20</div><div class="mkt-chg r">−1.34%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">NAT GAS</div><div class="mkt-price">$2.84</div><div class="mkt-chg r">−0.70%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">ALTIN (gr)</div><div class="mkt-price">₺4.124</div><div class="mkt-chg g">+0,52%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">GÜMÜŞ (gr)</div><div class="mkt-price">₺48,20</div><div class="mkt-chg g">+0,78%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BRENT PETROL</div><div class="mkt-price">$71,20</div><div class="mkt-chg r">−1,34%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">DOĞ. GAZ</div><div class="mkt-price">$2,84</div><div class="mkt-chg r">−0,70%</div></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="section-label">Bonds &amp; Rates</div>
+    <div class="section-label">Faiz &amp; Tahvil</div>
     <div class="mkt-grid">
-      <div class="mkt-item"><div class="mkt-sym">10Y UST</div><div class="mkt-price">4.28%</div><div class="mkt-chg r">+0.03</div></div>
-      <div class="mkt-item"><div class="mkt-sym">2Y UST</div><div class="mkt-price">4.71%</div><div class="mkt-chg r">+0.02</div></div>
-      <div class="mkt-item"><div class="mkt-sym">DXY</div><div class="mkt-price">104.2</div><div class="mkt-chg r">−0.18%</div></div>
-      <div class="mkt-item"><div class="mkt-sym">EUR/USD</div><div class="mkt-price">1.0842</div><div class="mkt-chg g">+0.22%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">TCMB FAİZ</div><div class="mkt-price">46,00%</div><div class="mkt-chg" style="color:#94a3b8">değişmedi</div></div>
+      <div class="mkt-item"><div class="mkt-sym">10Y DİBS</div><div class="mkt-price">42,80%</div><div class="mkt-chg r">+0,15</div></div>
+      <div class="mkt-item"><div class="mkt-sym">2Y DİBS</div><div class="mkt-price">44,20%</div><div class="mkt-chg r">+0,08</div></div>
+      <div class="mkt-item"><div class="mkt-sym">TÜFE (YoY)</div><div class="mkt-price">38,20%</div><div class="mkt-chg r">+0,40</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Kripto</div>
+    <div class="mkt-grid">
+      <div class="mkt-item"><div class="mkt-sym">BTC</div><div class="mkt-price">$104.230</div><div class="mkt-chg g">+2,14%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">ETH</div><div class="mkt-price">$3.847</div><div class="mkt-chg g">+1,88%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">AVAX</div><div class="mkt-price">$48,40</div><div class="mkt-chg g">+4,21%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BNB</div><div class="mkt-price">$682</div><div class="mkt-chg r">−0,44%</div></div>
     </div>
   </div>
 
@@ -380,16 +391,16 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 <div class="page" id="pg-watchlist">
 
   <div class="card">
-    <div class="card-row"><div style="font-size:14px;font-weight:700">Watchlist</div><button class="btn-add" style="margin-left:auto">+ Add</button></div>
+    <div class="card-row"><div style="font-size:14px;font-weight:700">Takip Listem</div><button class="btn-add" style="margin-left:auto">+ Ekle</button></div>
     <div id="watchList"></div>
   </div>
 
   <div class="card">
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Price Alerts</div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Fiyat Alarmları</div>
     <div class="acts">
-      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">NVDA above $150</div><div class="act-desc">Alert when price crosses $150.00</div></div><span class="pill p-amber" style="font-size:10px">Active</span></div>
-      <div class="act"><div class="act-badge ab-sell" style="font-size:10px">▼</div><div class="act-info"><div class="act-sym">TSLA below $180</div><div class="act-desc">Alert when price drops below $180.00</div></div><span class="pill p-muted" style="font-size:10px">Paused</span></div>
-      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">BTC above $110K</div><div class="act-desc">Alert when BTC crosses $110,000</div></div><span class="pill p-amber" style="font-size:10px">Active</span></div>
+      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">THYAO üzeri ₺1.400</div><div class="act-desc">Fiyat ₺1.400,00 geçince bildir</div></div><span class="pill p-amber" style="font-size:10px">Aktif</span></div>
+      <div class="act"><div class="act-badge ab-sell" style="font-size:10px">▼</div><div class="act-info"><div class="act-sym">GARAN altı ₺420</div><div class="act-desc">Fiyat ₺420,00 altına düşünce bildir</div></div><span class="pill p-muted" style="font-size:10px">Pasif</span></div>
+      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">ASELS üzeri ₺1.800</div><div class="act-desc">Fiyat ₺1.800,00 geçince bildir</div></div><span class="pill p-amber" style="font-size:10px">Aktif</span></div>
     </div>
   </div>
 
@@ -403,23 +414,23 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
     <div>
       <div class="profile-name">Raskoff</div>
       <div class="profile-email">raskoff.invest@gmail.com</div>
-      <span class="profile-badge">Pro Investor</span>
+      <span class="profile-badge">Pro Yatırımcı</span>
     </div>
   </div>
 
   <div class="card">
     <div class="settings-section">
-      <div class="settings-label">Preferences</div>
-      <div class="setting-row"><div class="setting-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="17" height="17"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="setting-info"><div class="setting-title">Push Notifications</div><div class="setting-sub">Price alerts &amp; news</div></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
-      <div class="setting-row"><div class="setting-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><div class="setting-info"><div class="setting-title">Dark Mode</div><div class="setting-sub">Always on</div></div><button class="toggle on"></button></div>
-      <div class="setting-row"><div class="setting-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="17" height="17"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="setting-info"><div class="setting-title">Currency</div><div class="setting-sub">USD — US Dollar</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="setting-row"><div class="setting-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="setting-info"><div class="setting-title">Benchmark</div><div class="setting-sub">S&amp;P 500 (SPX)</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="settings-label">Tercihler</div>
+      <div class="setting-row"><div class="setting-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="17" height="17"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="setting-info"><div class="setting-title">Anlık Bildirimler</div><div class="setting-sub">Fiyat alarmları &amp; haberler</div></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="setting-row"><div class="setting-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><div class="setting-info"><div class="setting-title">Karanlık Tema</div><div class="setting-sub">Her zaman açık</div></div><button class="toggle on"></button></div>
+      <div class="setting-row"><div class="setting-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="17" height="17"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="setting-info"><div class="setting-title">Para Birimi</div><div class="setting-sub">TRY — Türk Lirası</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="setting-info"><div class="setting-title">Kıyaslama Endeksi</div><div class="setting-sub">BIST 100</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
     <div class="settings-section">
-      <div class="settings-label">Account</div>
-      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="setting-info"><div class="setting-title">Edit Profile</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div class="setting-info"><div class="setting-title">Security &amp; Privacy</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="setting-row"><div class="setting-icon" style="background:rgba(244,63,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div class="setting-info"><div class="setting-title" style="color:#f43f5e">Sign Out</div></div></div>
+      <div class="settings-label">Hesap</div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="setting-info"><div class="setting-title">Profili Düzenle</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div class="setting-info"><div class="setting-title">Güvenlik &amp; Gizlilik</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(244,63,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div class="setting-info"><div class="setting-title" style="color:#f43f5e">Çıkış Yap</div></div></div>
     </div>
   </div>
 
@@ -427,22 +438,64 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
 <!-- BOTTOM NAV -->
 <nav class="botnav">
-  <button class="bn active" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Home</span></button>
-  <button class="bn" data-page="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg><span>Portfolio</span></button>
-  <button class="bn" data-page="markets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-5 5"/></svg><span>Markets</span></button>
-  <button class="bn" data-page="watchlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>Watch</span></button>
-  <button class="bn" data-page="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>More</span></button>
+  <button class="bn active" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Ana Sayfa</span></button>
+  <button class="bn" data-page="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg><span>Portföy</span></button>
+  <button class="bn" data-page="markets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-5 5"/></svg><span>Piyasalar</span></button>
+  <button class="bn" data-page="watchlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>Takip</span></button>
+  <button class="bn" data-page="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>Daha</span></button>
 </nav>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-const HOLDINGS=[{sym:'NVDA',name:'NVIDIA Corp.',price:134.90,shares:410,chg:+2.61},{sym:'AAPL',name:'Apple Inc.',price:211.84,shares:185,chg:+1.24},{sym:'MSFT',name:'Microsoft Corp.',price:442.57,shares:72,chg:+0.88},{sym:'META',name:'Meta Platforms',price:603.18,shares:38,chg:+1.52},{sym:'AMZN',name:'Amazon.com',price:223.50,shares:45,chg:+1.07},{sym:'GOOGL',name:'Alphabet Inc.',price:186.42,shares:95,chg:-0.34},{sym:'JPM',name:'JPMorgan Chase',price:264.38,shares:55,chg:-0.76},{sym:'TSM',name:'Taiwan Semi.',price:192.74,shares:88,chg:+3.14},{sym:'BRK.B',name:'Berkshire Hathaway',price:483.20,shares:28,chg:+0.21},{sym:'VTI',name:'Vanguard Total Mkt',price:268.30,shares:50,chg:+0.64}];
-const ALLOC=[{name:'Technology',pct:46.2,color:'#f59e0b'},{name:'Semiconductor',pct:15.1,color:'#f43f5e'},{name:'Index/ETF',pct:13.4,color:'#10b981'},{name:'Financials',pct:11.7,color:'#3b82f6'},{name:'Consumer',pct:9.6,color:'#8b5cf6'},{name:'Other',pct:4.0,color:'#475569'}];
-const ACTS=[{type:'buy',sym:'NVDA',desc:'Bought 50 shares',date:'Jun 12',amt:'+$6,745',pos:true},{type:'sell',sym:'TSLA',desc:'Sold 30 shares',date:'Jun 10',amt:'−$5,312',pos:false},{type:'div',sym:'AAPL',desc:'Dividend',date:'Jun 8',amt:'+$215',pos:true},{type:'buy',sym:'META',desc:'Bought 8 shares',date:'Jun 5',amt:'+$4,825',pos:true},{type:'div',sym:'JPM',desc:'Dividend',date:'Jun 1',amt:'+$138',pos:true}];
-const RISKS=[{lbl:'Max Drawdown',val:'−8.34%',cls:'r',pct:34,color:'#f43f5e'},{lbl:'Volatility',val:'12.7%',cls:'',pct:50,color:'#f59e0b'},{lbl:'Win Rate',val:'67.3%',cls:'g',pct:67,color:'#10b981'},{lbl:'Sortino',val:'2.41',cls:'g',pct:80,color:'#10b981'},{lbl:'VaR 95%',val:'−2.18%',cls:'r',pct:22,color:'#f43f5e'},{lbl:'Corr SPX',val:'0.78',cls:'',pct:78,color:'#3b82f6'}];
-const WATCH=[{sym:'TSLA',name:'Tesla Inc.',price:248.50,chg:-1.82},{sym:'AMZN',name:'Amazon.com',price:223.50,chg:+1.07},{sym:'NFLX',name:'Netflix Inc.',price:712.30,chg:+0.44},{sym:'AMD',name:'AMD Inc.',price:167.80,chg:+2.38},{sym:'PLTR',name:'Palantir Tech.',price:31.42,chg:+4.12},{sym:'COIN',name:'Coinbase Global',price:248.10,chg:+3.87}];
+const HOLDINGS=[
+  {sym:'THYAO', name:'Türk Hava Yolları', price:1240.50, shares:410, chg:+2.34},
+  {sym:'GARAN', name:'Garanti BBVA',       price:485.20,  shares:380, chg:+1.18},
+  {sym:'KCHOL', name:'Koç Holding',        price:892.40,  shares:180, chg:-0.54},
+  {sym:'ASELS', name:'Aselsan A.Ş.',       price:1580.90, shares:95,  chg:+3.42},
+  {sym:'BIMAS', name:'BİM Mağazalar',      price:742.80,  shares:200, chg:+0.87},
+  {sym:'SAHOL', name:'Sabancı Holding',    price:674.30,  shares:220, chg:-1.23},
+  {sym:'TUPRS', name:'Tüpraş',             price:1124.60, shares:120, chg:+0.61},
+  {sym:'AKBNK', name:'Akbank T.A.Ş.',      price:352.40,  shares:350, chg:+1.74},
+  {sym:'EREGL', name:'Ereğli D. Çelik',   price:195.80,  shares:600, chg:-0.38},
+  {sym:'SISE',  name:'Şişecam A.Ş.',      price:128.50,  shares:800, chg:+0.92},
+];
 
-const fmt=(n,d=2)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const ALLOC=[
+  {name:'Bankacılık', pct:30.5, color:'#f59e0b'},
+  {name:'Savunma',    pct:14.8, color:'#f43f5e'},
+  {name:'Havacılık',  pct:14.2, color:'#10b981'},
+  {name:'Holding',    pct:13.4, color:'#3b82f6'},
+  {name:'Enerji',     pct:9.8,  color:'#8b5cf6'},
+  {name:'Diğer',      pct:17.3, color:'#475569'},
+];
+
+const ACTS=[
+  {type:'buy',  sym:'THYAO', desc:'50 lot alındı',    date:'14 Haz', amt:'+₺62.025', pos:true },
+  {type:'sell', sym:'EKGYO', desc:'500 lot satıldı',  date:'12 Haz', amt:'−₺24.250', pos:false},
+  {type:'div',  sym:'GARAN', desc:'Temettü',          date:'10 Haz', amt:'+₺1.824',  pos:true },
+  {type:'buy',  sym:'ASELS', desc:'10 lot alındı',    date:'7 Haz',  amt:'+₺15.809', pos:true },
+  {type:'div',  sym:'AKBNK', desc:'Temettü',          date:'4 Haz',  amt:'+₺880',    pos:true },
+];
+
+const RISKS=[
+  {lbl:'Maks. Düşüş',    val:'−12,84%', cls:'r', pct:34, color:'#f43f5e'},
+  {lbl:'Volatilite',     val:'18,4%',   cls:'',  pct:50, color:'#f59e0b'},
+  {lbl:'Kazanma Oranı',  val:'63,2%',   cls:'g', pct:63, color:'#10b981'},
+  {lbl:'Sortino',        val:'2,14',    cls:'g', pct:71, color:'#10b981'},
+  {lbl:'VaR 95%',        val:'−3,42%',  cls:'r', pct:28, color:'#f43f5e'},
+  {lbl:'Korel. BIST100', val:'0,82',    cls:'',  pct:82, color:'#3b82f6'},
+];
+
+const WATCH=[
+  {sym:'TCELL', name:'Turkcell',           price:108.40,  chg:+1.24},
+  {sym:'PGSUS', name:'Pegasus Hava Yolları',price:584.20, chg:-0.88},
+  {sym:'FROTO', name:'Ford Otosan',        price:1842.00, chg:+2.14},
+  {sym:'TOASO', name:'Tofaş Oto. Fab.',   price:692.50,  chg:+0.44},
+  {sym:'VESTL', name:'Vestel Elektronik', price:98.20,   chg:+3.21},
+  {sym:'EKGYO', name:'Emlak Konut GYO',   price:48.50,   chg:+1.87},
+];
+
+const fmt=(n,d=2)=>n.toLocaleString('tr-TR',{minimumFractionDigits:d,maximumFractionDigits:d});
 
 // NAV
 document.querySelectorAll('.bn').forEach(btn=>{
@@ -471,29 +524,76 @@ if(tk)tk.innerHTML+=tk.innerHTML;
 // PERF CHART
 function makeSeries(s,n){const d=[s];for(let i=1;i<n;i++)d.push(+(d[d.length-1]*(1+(Math.random()-.43)*.018)).toFixed(4));return d;}
 window.addEventListener('load',()=>{
-  Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(255,255,255,0.05)';Chart.defaults.font.family="'Inter',sans-serif";Chart.defaults.font.size=10;
+  Chart.defaults.color='#94a3b8';
+  Chart.defaults.borderColor='rgba(255,255,255,0.05)';
+  Chart.defaults.font.family="'Inter',sans-serif";
+  Chart.defaults.font.size=10;
+
   const el=document.getElementById('perfChart');
   if(el){
-    const ctx=el.getContext('2d'),n=30,port=makeSeries(.80,n),bench=makeSeries(.84,n);
-    port[n-1]=1.2108;bench[n-1]=1.0924;
-    const g=ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,'rgba(245,158,11,.22)');g.addColorStop(1,'rgba(245,158,11,0)');
-    const labels=Array.from({length:n},(_,i)=>{const d=new Date(2026,5,14);d.setDate(d.getDate()-(n-1-i));return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});});
-    new Chart(el,{type:'line',data:{labels,datasets:[{label:'Portfolio',data:port.map(v=>+(v*100-100).toFixed(2)),borderColor:'#f59e0b',borderWidth:2,fill:true,backgroundColor:g,pointRadius:0,tension:.45},{label:'Bench',data:bench.map(v=>+(v*100-100).toFixed(2)),borderColor:'#475569',borderWidth:1.5,borderDash:[5,4],fill:false,pointRadius:0,tension:.45}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}}}});
+    const ctx=el.getContext('2d'),n=30;
+    const port=makeSeries(.80,n), bench=makeSeries(.84,n);
+    port[n-1]=1.2240; bench[n-1]=1.1080;
+    const g=ctx.createLinearGradient(0,0,0,180);
+    g.addColorStop(0,'rgba(245,158,11,.22)');g.addColorStop(1,'rgba(245,158,11,0)');
+    const labels=Array.from({length:n},(_,i)=>{
+      const d=new Date(2026,5,14);d.setDate(d.getDate()-(n-1-i));
+      return d.toLocaleDateString('tr-TR',{month:'short',day:'numeric'});
+    });
+    new Chart(el,{
+      type:'line',
+      data:{labels,datasets:[
+        {label:'Portföy',data:port.map(v=>+(v*100-100).toFixed(2)),borderColor:'#f59e0b',borderWidth:2,fill:true,backgroundColor:g,pointRadius:0,tension:.45},
+        {label:'BIST 100',data:bench.map(v=>+(v*100-100).toFixed(2)),borderColor:'#475569',borderWidth:1.5,borderDash:[5,4],fill:false,pointRadius:0,tension:.45}
+      ]},
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{
+          legend:{display:false},
+          tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,
+            callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}
+        },
+        scales:{
+          x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},
+          y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}
+        }
+      }
+    });
   }
+
   // DONUT
   const de=document.getElementById('donut');
-  if(de){new Chart(de,{type:'doughnut',data:{labels:ALLOC.map(a=>a.name),datasets:[{data:ALLOC.map(a=>a.pct),backgroundColor:ALLOC.map(a=>a.color),borderColor:'#111d2e',borderWidth:3,hoverOffset:4}]},options:{responsive:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10}}}});}
+  if(de){
+    new Chart(de,{
+      type:'doughnut',
+      data:{labels:ALLOC.map(a=>a.name),datasets:[{data:ALLOC.map(a=>a.pct),backgroundColor:ALLOC.map(a=>a.color),borderColor:'#111d2e',borderWidth:3,hoverOffset:4}]},
+      options:{responsive:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.label}: ${c.parsed.toFixed(1)}%`}}}}
+    });
+  }
   const ar=document.getElementById('allocRows');
-  if(ar)ar.innerHTML=ALLOC.map(a=>`<div class="al-row"><span class="al-dot" style="background:${a.color}"></span><span class="al-name">${a.name}</span><div class="al-bar"><div class="al-fill" style="width:${a.pct}%;background:${a.color}"></div></div><span class="al-pct">${a.pct}%</span></div>`).join('');
+  if(ar)ar.innerHTML=ALLOC.map(a=>`
+    <div class="al-row">
+      <span class="al-dot" style="background:${a.color}"></span>
+      <span class="al-name">${a.name}</span>
+      <div class="al-bar"><div class="al-fill" style="width:${a.pct}%;background:${a.color}"></div></div>
+      <span class="al-pct">${a.pct}%</span>
+    </div>`).join('');
 });
 
 // HOLDINGS TABLE
 function renderHoldings(q=''){
-  const tbody=document.querySelector('#htbl tbody');if(!tbody)return;
+  const tbody=document.querySelector('#htbl tbody');
+  if(!tbody)return;
   const list=HOLDINGS.filter(h=>h.sym.toLowerCase().includes(q.toLowerCase())||h.name.toLowerCase().includes(q.toLowerCase()));
   tbody.innerHTML=list.map(h=>{
-    const val=h.price*h.shares,c=h.chg>=0?'#10b981':'#f43f5e';
-    return `<tr><td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td><td class="tr">$${fmt(h.price)}</td><td class="tr" style="color:${c}">${h.chg>=0?'+':''}${h.chg.toFixed(2)}%</td><td class="tr">$${fmt(val,0)}</td></tr>`;
+    const val=h.price*h.shares, c=h.chg>=0?'#10b981':'#f43f5e';
+    return `<tr>
+      <td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td>
+      <td class="tr">₺${fmt(h.price)}</td>
+      <td class="tr" style="color:${c}">${h.chg>=0?'+':''}${h.chg.toFixed(2)}%</td>
+      <td class="tr">₺${fmt(val,0)}</td>
+    </tr>`;
   }).join('');
 }
 renderHoldings();
@@ -503,14 +603,25 @@ if(inp)inp.addEventListener('input',()=>renderHoldings(inp.value));
 // ACTIVITY
 const actEl=document.getElementById('acts-home');
 if(actEl)actEl.innerHTML=ACTS.map(a=>{
-  const bc=a.type==='buy'?'ab-buy':a.type==='sell'?'ab-sell':'ab-div',ac=a.pos?'color:#10b981':'color:#f43f5e';
-  return `<div class="act"><div class="act-badge ${bc}">${a.type.toUpperCase()}</div><div class="act-info"><div class="act-sym">${a.sym}</div><div class="act-desc">${a.desc} · ${a.date}</div></div><div class="act-amt" style="${ac}">${a.amt}</div></div>`;
+  const bc=a.type==='buy'?'ab-buy':a.type==='sell'?'ab-sell':'ab-div';
+  const lbl=a.type==='buy'?'AL':a.type==='sell'?'SAT':'TEM';
+  const ac=a.pos?'color:#10b981':'color:#f43f5e';
+  return `<div class="act">
+    <div class="act-badge ${bc}">${lbl}</div>
+    <div class="act-info"><div class="act-sym">${a.sym}</div><div class="act-desc">${a.desc} · ${a.date}</div></div>
+    <div class="act-amt" style="${ac}">${a.amt}</div>
+  </div>`;
 }).join('');
 
 // RISK
 const rg=document.getElementById('riskGrid');
 if(rg){
-  rg.innerHTML=RISKS.map(r=>`<div class="ri"><div class="ri-lbl">${r.lbl}</div><div class="ri-val ${r.cls}">${r.val}</div><div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div></div>`).join('');
+  rg.innerHTML=RISKS.map(r=>`
+    <div class="ri">
+      <div class="ri-lbl">${r.lbl}</div>
+      <div class="ri-val ${r.cls}">${r.val}</div>
+      <div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div>
+    </div>`).join('');
   setTimeout(()=>rg.querySelectorAll('.ri-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),400);
 }
 
@@ -518,7 +629,13 @@ if(rg){
 const wl=document.getElementById('watchList');
 if(wl)wl.innerHTML=WATCH.map(w=>{
   const c=w.chg>=0?'#10b981':'#f43f5e';
-  return `<div class="watch-item"><div class="watch-info"><div class="watch-sym">${w.sym}</div><div class="watch-name">${w.name}</div></div><div class="watch-right"><div class="watch-price">$${fmt(w.price)}</div><div class="watch-chg" style="color:${c}">${w.chg>=0?'+':''}${w.chg.toFixed(2)}%</div></div></div>`;
+  return `<div class="watch-item">
+    <div class="watch-info"><div class="watch-sym">${w.sym}</div><div class="watch-name">${w.name}</div></div>
+    <div class="watch-right">
+      <div class="watch-price">₺${fmt(w.price)}</div>
+      <div class="watch-chg" style="color:${c}">${w.chg>=0?'+':''}${w.chg.toFixed(2)}%</div>
+    </div>
+  </div>`;
 }).join('');
 </script>
 </body>
