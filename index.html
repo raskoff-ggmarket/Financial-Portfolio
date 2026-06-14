@@ -219,6 +219,25 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 /* ── HIDDEN UTIL ── */
 .hidden{display:none!important}
 
+/* ── WATCHLIST ── */
+.wl-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.wl-item:last-child{border-bottom:none}
+.wl-icon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;letter-spacing:-.3px}
+.wl-info{flex:1;min-width:0}
+.wl-sym{font-size:15px;font-weight:700}
+.wl-time{font-size:11px;color:#475569;margin-top:2px}
+.wl-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.wl-price-val{font-size:16px;font-weight:700;min-width:72px;text-align:right}
+.wl-chg{font-size:13px;font-weight:700;padding:5px 10px;border-radius:7px;min-width:72px;text-align:center}
+.wl-chg.g{background:#14532d;color:#4ade80}
+.wl-chg.r{background:#7f1d1d;color:#f87171}
+.wl-chg.m{background:#1e293b;color:#64748b}
+.wl-del{width:28px;height:28px;border-radius:50%;background:rgba(244,63,94,.15);border:none;color:#f43f5e;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;flex-shrink:0}
+.wl-edit .wl-del{display:flex}
+.wl-add-btn{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#94a3b8;font-family:inherit;font-size:15px;font-weight:600;padding:15px;cursor:pointer;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px}
+.wl-add-btn:active{background:rgba(255,255,255,.1)}
+.spinning{animation:rot .7s linear infinite}
+
 @media(min-width:640px){
   .page{padding:20px;gap:16px;max-width:600px}
   .chart-box{height:220px}
@@ -391,22 +410,30 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
 <!-- WATCHLIST -->
 <div class="page" id="pg-watchlist">
-  <div class="card">
-    <div class="card-row"><div style="font-size:14px;font-weight:700">Takip Listesi</div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">TCELL</div><div class="watch-name">Turkcell</div></div><div class="watch-right"><div class="watch-price">₺108,40</div><div class="watch-chg g">+1,24%</div></div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">PGSUS</div><div class="watch-name">Pegasus Hava Yolları</div></div><div class="watch-right"><div class="watch-price">₺584,20</div><div class="watch-chg r">−0,88%</div></div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">FROTO</div><div class="watch-name">Ford Otosan</div></div><div class="watch-right"><div class="watch-price">₺1.842</div><div class="watch-chg g">+2,14%</div></div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">TOASO</div><div class="watch-name">Tofaş Oto. Fab.</div></div><div class="watch-right"><div class="watch-price">₺692,50</div><div class="watch-chg g">+0,44%</div></div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">EKGYO</div><div class="watch-name">Emlak Konut GYO</div></div><div class="watch-right"><div class="watch-price">₺48,50</div><div class="watch-chg g">+1,87%</div></div></div>
-    <div class="watch-item"><div class="watch-info"><div class="watch-sym">KOZAL</div><div class="watch-name">Koza Altın İşletmeleri</div></div><div class="watch-right"><div class="watch-price">₺218,40</div><div class="watch-chg g">+0,92%</div></div></div>
-  </div>
-  <div class="card">
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Fiyat Alarmları</div>
-    <div class="acts">
-      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">THYAO üzeri ₺1.400</div><div class="act-desc">Alarm kurulu</div></div><span class="pill p-amber" style="font-size:10px">Aktif</span></div>
-      <div class="act"><div class="act-badge ab-sell" style="font-size:10px">▼</div><div class="act-info"><div class="act-sym">GARAN altı ₺420</div><div class="act-desc">Alarm kurulu</div></div><span class="pill p-muted" style="font-size:10px">Pasif</span></div>
-      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">ALTIN üzeri ₺4.500</div><div class="act-desc">Gram altın alarmı</div></div><span class="pill p-amber" style="font-size:10px">Aktif</span></div>
+  <div class="card" style="padding:16px 16px 10px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+      <div style="font-size:16px;font-weight:700">İzleme listesi</div>
+      <div style="display:flex;gap:4px">
+        <button class="icon-btn" id="wl-refbtn" onclick="refreshWatchlist()" title="Yenile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        </button>
+        <button class="icon-btn" id="wl-editbtn" onclick="toggleWlEdit()" title="Düzenle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
+      </div>
     </div>
+    <div id="wl-list"></div>
+    <div id="wl-add-area" class="hidden" style="padding:8px 0 4px;border-top:1px solid rgba(255,255,255,.06)">
+      <div class="ac-wrap">
+        <input class="form-inp" id="wl-sym-inp" type="text" placeholder="Sembol yazın (GARAN, THYAO…)"
+               oninput="onWlSymInput()" onblur="closeWlAC(250)" style="text-transform:uppercase"/>
+        <div class="ac-list" id="wl-ac-list"></div>
+      </div>
+    </div>
+    <button class="wl-add-btn" onclick="openWlAdd()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Sembol ekle
+    </button>
   </div>
 </div>
 
@@ -1027,6 +1054,140 @@ function clearAll(){ if(!confirm('Tüm varlıklar silinecek. Emin misiniz?'))ret
 /* ── TOAST ───────────────────────────────────────────────── */
 function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
 
+/* ── WATCHLIST ───────────────────────────────────────────── */
+const WL_LS='qe_watch';
+let WATCHLIST=[];
+let wlEdit=false;
+
+function defaultWL(){
+  return [
+    {sym:'ASELS',type:'hisse',price:null,chg:null,time:null},
+    {sym:'BIMAS',type:'hisse',price:null,chg:null,time:null},
+    {sym:'TUPRS',type:'hisse',price:null,chg:null,time:null},
+    {sym:'KCHOL',type:'hisse',price:null,chg:null,time:null},
+    {sym:'GARAN',type:'hisse',price:null,chg:null,time:null},
+    {sym:'ALTINS1',type:'altin',price:null,chg:null,time:null},
+  ];
+}
+function loadWL(){ try{ WATCHLIST=JSON.parse(localStorage.getItem(WL_LS))||defaultWL(); }catch(e){ WATCHLIST=defaultWL(); } }
+function saveWL(){ localStorage.setItem(WL_LS,JSON.stringify(WATCHLIST)); }
+
+function wlIconColor(sym){
+  const e=BIST_DB.find(s=>s.sym===sym);
+  if(e&&COLORS[e.sector]) return COLORS[e.sector];
+  const cs=['#f59e0b','#10b981','#3b82f6','#f43f5e','#8b5cf6','#06b6d4','#ec4899','#f97316'];
+  return cs[sym.charCodeAt(0)%cs.length];
+}
+function isLightColor(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return (r*299+g*587+b*114)/1000>145;
+}
+
+function renderWL(){
+  const el=document.getElementById('wl-list'); if(!el)return;
+  const container=document.getElementById('wl-list').parentElement;
+  if(container) container.classList.toggle('wl-edit',wlEdit);
+  if(!WATCHLIST.length){
+    el.innerHTML='<div style="text-align:center;padding:28px 0;color:#475569;font-size:13px">Liste boş — sembol ekleyin</div>';
+    return;
+  }
+  el.innerHTML=WATCHLIST.map((w,i)=>{
+    const col=wlIconColor(w.sym);
+    const txtCol=isLightColor(col)?'#000':'#fff';
+    const initials=w.sym.replace(/[0-9]/g,'').slice(0,2)||w.sym.slice(0,2);
+    const displaySym=w.sym==='ALTINS1'?'ALTIN.S1':w.sym;
+    const priceStr=w.price!=null?fmt(w.price,w.type==='altin'?4:2):'—';
+    const chgStr=w.chg!=null?(w.chg>=0?'+':'')+fmt(Math.abs(w.chg),2)+'%':'—';
+    const chgCls=w.chg==null?'m':w.chg>=0?'g':'r';
+    const timeStr=w.time?new Date(w.time).toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}):'—';
+    return `<div class="wl-item">
+      <div class="wl-icon" style="background:${col};color:${txtCol}">${initials}</div>
+      <div class="wl-info">
+        <div class="wl-sym">${displaySym}</div>
+        <div class="wl-time">${timeStr}</div>
+      </div>
+      <div class="wl-right">
+        <div class="wl-price-val">${priceStr}</div>
+        <div class="wl-chg ${chgCls}">${chgStr}</div>
+        <button class="wl-del" onclick="removeWL(${i})">×</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleWlEdit(){
+  wlEdit=!wlEdit;
+  const btn=document.getElementById('wl-editbtn');
+  if(btn) btn.style.color=wlEdit?'#f59e0b':'';
+  renderWL();
+}
+
+function removeWL(i){
+  WATCHLIST.splice(i,1); saveWL(); renderWL(); showToast('Silindi');
+}
+
+function openWlAdd(){
+  const area=document.getElementById('wl-add-area');
+  area.classList.toggle('hidden');
+  if(!area.classList.contains('hidden')) setTimeout(()=>document.getElementById('wl-sym-inp')?.focus(),100);
+}
+
+function onWlSymInput(){
+  const q=document.getElementById('wl-sym-inp')?.value.toUpperCase()||'';
+  const acl=document.getElementById('wl-ac-list'); if(!acl)return;
+  if(!q){ acl.classList.remove('open'); return; }
+  const res=BIST_DB.filter(s=>s.sym.startsWith(q)||s.name.toUpperCase().includes(q)).slice(0,7);
+  if(!res.length){ acl.classList.remove('open'); return; }
+  acl.innerHTML=res.map(s=>`<div class="ac-item" onmousedown="selectWlAC('${s.sym}','${s.sector}')"><div class="ac-sym">${s.sym}</div><div class="ac-nm">${s.name}</div><div class="ac-sector">${s.sector}</div></div>`).join('');
+  acl.classList.add('open');
+}
+function closeWlAC(d){ setTimeout(()=>document.getElementById('wl-ac-list')?.classList.remove('open'),d); }
+function selectWlAC(sym,sector){
+  if(WATCHLIST.find(w=>w.sym===sym)){ showToast(sym+' zaten listede'); closeWlAC(0); return; }
+  const type=sector==='Altın'?'altin':sector==='Kripto'?'kripto':'hisse';
+  WATCHLIST.push({sym,type,price:null,chg:null,time:null});
+  saveWL(); renderWL();
+  const inp=document.getElementById('wl-sym-inp'); if(inp)inp.value='';
+  closeWlAC(0);
+  document.getElementById('wl-add-area')?.classList.add('hidden');
+  showToast(sym+' eklendi');
+  fetchWLItem(WATCHLIST.length-1);
+}
+
+async function fetchWLItem(i){
+  const w=WATCHLIST[i]; if(!w)return;
+  try{
+    let p=null,chg=null;
+    if(w.type==='altin'){
+      const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),6000);
+      try{
+        const r=await fetch('https://www.doviz.com/api/v1/precious-metals/gram-altin/latest',{signal:ctrl.signal,headers:{'Accept':'application/json'}});
+        clearTimeout(t);
+        if(r.ok){const d=await r.json();const gp=d.selling??d.price;if(gp){p=+(gp*0.01).toFixed(4);chg=d.change_rate??null;}}
+      }catch(e){clearTimeout(t);}
+      if(p==null){
+        const ctrl2=new AbortController();const t2=setTimeout(()=>ctrl2.abort(),7000);
+        try{const r=await fetch('https://query2.finance.yahoo.com/v8/finance/chart/ALTINS1.IS?interval=1d&range=1d',{signal:ctrl2.signal});clearTimeout(t2);if(r.ok){const d=await r.json();const m=d?.chart?.result?.[0]?.meta;if(m?.regularMarketPrice){p=m.regularMarketPrice;const pv=m.previousClose||p;chg=(p-pv)/pv*100;}}}catch(e){clearTimeout(t2);}
+      }
+    } else {
+      const ctrl=new AbortController();const t=setTimeout(()=>ctrl.abort(),7000);
+      try{
+        const r=await fetch(`https://query2.finance.yahoo.com/v8/finance/chart/${w.sym}.IS?interval=1d&range=1d`,{signal:ctrl.signal});
+        clearTimeout(t);
+        if(r.ok){const d=await r.json();const m=d?.chart?.result?.[0]?.meta;if(m?.regularMarketPrice){p=m.regularMarketPrice;const pv=m.previousClose||p;chg=(p-pv)/pv*100;}}
+      }catch(e){clearTimeout(t);}
+    }
+    if(p!=null){WATCHLIST[i].price=p;WATCHLIST[i].chg=chg;WATCHLIST[i].time=Date.now();saveWL();renderWL();}
+  }catch(e){}
+}
+
+async function refreshWatchlist(){
+  const btn=document.getElementById('wl-refbtn');
+  if(btn) btn.querySelector('svg').classList.add('spinning');
+  await Promise.allSettled(WATCHLIST.map((_,i)=>fetchWLItem(i)));
+  if(btn) btn.querySelector('svg').classList.remove('spinning');
+}
+
 /* ── NAV ─────────────────────────────────────────────────── */
 document.querySelectorAll('.bn').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -1036,6 +1197,7 @@ document.querySelectorAll('.bn').forEach(btn=>{
     btn.classList.add('active');
     document.getElementById('pg-'+pg).classList.add('active');
     window.scrollTo(0,0);
+    if(pg==='watchlist') refreshWatchlist();
   });
 });
 document.querySelectorAll('.per').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.per').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}));
@@ -1056,6 +1218,7 @@ window.addEventListener('load',()=>{
     new Chart(el,{type:'line',data:{labels,datasets:[{label:'Portföy',data:port.map(v=>+(v*100-100).toFixed(2)),borderColor:'#f59e0b',borderWidth:2,fill:true,backgroundColor:g,pointRadius:0,tension:.45},{label:'BIST 100',data:bench.map(v=>+(v*100-100).toFixed(2)),borderColor:'#475569',borderWidth:1.5,borderDash:[5,4],fill:false,pointRadius:0,tension:.45}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}}}});
   }
   load(); renderAll();
+  loadWL(); renderWL();
 });
 </script>
 </body>
