@@ -835,7 +835,7 @@ function setType(t){
   ['field-sym','field-sector','field-currency','field-purpose','field-price-row','field-doviz-row','field-nakit-amount','field-cost-row'].forEach(hide);
   // Type-specific
   if(t==='hisse'){ show('field-sym'); show('field-sector'); show('field-price-row'); show('field-cost-row'); setLabels('Sembol','Şirket Adı','Fiyat (₺)','Lot Sayısı','Ort. Maliyet (₺/lot)'); }
-  if(t==='altin'){ show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Ürün Kodu','Ürün Adı','Gram Fiyatı (₺)','Gram Miktarı','Ort. Maliyet (₺/gr)'); document.getElementById('f-sym').value='ALTS1'; document.getElementById('f-name').value='Altın S1 (Gram Altın – Seri 1)'; }
+  if(t==='altin'){ show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Ürün Kodu','Ürün Adı','Gram Fiyatı (₺)','Gram Miktarı','Ort. Maliyet (₺/gr)'); document.getElementById('f-sym').value='ALTS1'; document.getElementById('f-name').value='Altın S1 (Gram Altın – Seri 1)'; fetchStockPrice('ALTS1'); }
   if(t==='doviz'){ show('field-sym'); show('field-currency'); show('field-purpose'); show('field-doviz-row'); show('field-cost-row'); setLabels('Para Birimi','—','—','—','Alış Kuru (₺)'); onCurrencyChange(); }
   if(t==='nakit'){ show('field-purpose'); show('field-nakit-amount'); setLabels('—','—','—','—','—'); }
   if(t==='fon'){   show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Fon Kodu','Fon Adı','Birim Fiyatı (₺)','Birim Sayısı','Ort. Maliyet (₺)'); }
@@ -878,7 +878,7 @@ function selectAC(sym,name,sector){
   document.getElementById('f-name').value=name;
   const sel=document.getElementById('f-sector'); if(sel){ for(let o of sel.options){ if(o.value===sector){o.selected=true;break;} } }
   closeAC(0);
-  if(currentType==='hisse'||currentType==='fon') fetchStockPrice(sym);
+  if(currentType==='hisse'||currentType==='fon'||currentType==='altin') fetchStockPrice(sym);
   if(currentType==='kripto') fetchCryptoPrice(sym);
 }
 function closeAC(delay){ setTimeout(()=>document.getElementById('acList')?.classList.remove('open'),delay); }
