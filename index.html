@@ -646,7 +646,7 @@ const BIST_DB = [
   {sym:'VESBE',name:'Vestel Beyaz Eşya San. ve Tic. A.Ş.',sector:'Teknoloji'},
   {sym:'ZRGYO',name:'Ziraat Gayrimenkul Yat. Ort. A.Ş.',sector:'İnşaat/GYO'},
   // Altın / Özel
-  {sym:'ALTIN', name:'Fiziki Altın (Gram)',sector:'Altın'},
+  {sym:'ALTIN', name:'Darphane Altın Sertifikası (Gram Altın)',sector:'Altın'},
   {sym:'ALTS1', name:'Altın S1 (Gram Altın – Seri 1)',sector:'Altın'},
   {sym:'ALTS2', name:'Altın S2 (Gram Altın – Seri 2)',sector:'Altın'},
   {sym:'GAB',   name:'Garanti Portföy Altın Fonu (TEFAS)',sector:'Altın'},
@@ -835,7 +835,7 @@ function setType(t){
   ['field-sym','field-sector','field-currency','field-purpose','field-price-row','field-doviz-row','field-nakit-amount','field-cost-row'].forEach(hide);
   // Type-specific
   if(t==='hisse'){ show('field-sym'); show('field-sector'); show('field-price-row'); show('field-cost-row'); setLabels('Sembol','Şirket Adı','Fiyat (₺)','Lot Sayısı','Ort. Maliyet (₺/lot)'); }
-  if(t==='altin'){ show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Ürün Kodu','Ürün Adı','Gram Fiyatı (₺)','Gram Miktarı','Ort. Maliyet (₺/gr)'); document.getElementById('f-sym').value='ALTS1'; document.getElementById('f-name').value='Altın S1 (Gram Altın – Seri 1)'; fetchStockPrice('ALTS1'); }
+  if(t==='altin'){ show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Ürün Kodu','Ürün Adı','Gram Fiyatı (₺)','Gram Miktarı','Ort. Maliyet (₺/gr)'); document.getElementById('f-sym').value='ALTIN'; document.getElementById('f-name').value='Darphane Altın Sertifikası (Gram Altın)'; fetchStockPrice('ALTIN'); }
   if(t==='doviz'){ show('field-sym'); show('field-currency'); show('field-purpose'); show('field-doviz-row'); show('field-cost-row'); setLabels('Para Birimi','—','—','—','Alış Kuru (₺)'); onCurrencyChange(); }
   if(t==='nakit'){ show('field-purpose'); show('field-nakit-amount'); setLabels('—','—','—','—','—'); }
   if(t==='fon'){   show('field-sym'); show('field-price-row'); show('field-cost-row'); setLabels('Fon Kodu','Fon Adı','Birim Fiyatı (₺)','Birim Sayısı','Ort. Maliyet (₺)'); }
