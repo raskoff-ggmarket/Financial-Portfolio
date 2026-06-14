@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#080e1a" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+  <meta name="theme-color" content="#080e1a"/>
   <title>QuantEdge</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#080e1a;--surface:#0f1929;--card:#111d2e;--card2:#162236;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.04);--amber:#f59e0b;--amber2:rgba(245,158,11,.14);--green:#10b981;--green2:rgba(16,185,129,.14);--red:#f43f5e;--red2:rgba(244,63,94,.14);--blue:#3b82f6;--blue2:rgba(59,130,246,.14);--t1:#f1f5f9;--t2:#94a3b8;--t3:#334155;--topbar:56px;--botnav:64px;--gap:12px;--r:14px;--r-s:10px;--r-xs:7px}
+:root{--bg:#080e1a;--surf:#0f1929;--card:#111d2e;--card2:#162236;--bdr:rgba(255,255,255,.07);--bdr2:rgba(255,255,255,.04);--amber:#f59e0b;--a2:rgba(245,158,11,.14);--green:#10b981;--g2:rgba(16,185,129,.14);--red:#f43f5e;--r2:rgba(244,63,94,.14);--blue:#3b82f6;--b2:rgba(59,130,246,.14);--t1:#f1f5f9;--t2:#94a3b8;--t3:#334155;--top:56px;--bot:64px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
-body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#080e1a;color:#f1f5f9;min-height:100dvh;overflow-x:hidden;padding-top:var(--topbar);padding-bottom:calc(var(--botnav) + env(safe-area-inset-bottom))}
+body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5f9;min-height:100dvh;overflow-x:hidden;padding-top:var(--top);padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom))}
 ::-webkit-scrollbar{display:none}
-.topbar{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--topbar);padding:0 16px;padding-top:env(safe-area-inset-top);background:#0f1929;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--top);padding:0 16px;padding-top:env(safe-area-inset-top);background:#0f1929;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:8px}
-.brand-icon{width:30px;height:30px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.28);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.brand-name{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.brand-icon{width:30px;height:30px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.28);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.brand-name{font-size:16px;font-weight:800}
+.page-title{font-size:16px;font-weight:700;display:none}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .live-pill{display:flex;align-items:center;gap:5px;background:rgba(16,185,129,.14);border:1px solid rgba(16,185,129,.25);border-radius:99px;padding:3px 9px;font-size:10px;font-weight:700;letter-spacing:.8px;color:#10b981}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:pulse 1.8s ease infinite}
 @keyframes pulse{50%{opacity:.35;transform:scale(.75)}}
-.icon-btn{background:none;border:none;cursor:pointer;color:#94a3b8;padding:6px;position:relative;line-height:0;border-radius:8px}
+.icon-btn{background:none;border:none;color:#94a3b8;padding:6px;position:relative;line-height:0;border-radius:8px;cursor:pointer}
 .icon-btn:active{background:#162236}
-.badge-dot{position:absolute;top:1px;right:1px;background:#f43f5e;color:#fff;font-size:9px;font-weight:700;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #0f1929}
+.notif-dot{position:absolute;top:1px;right:1px;background:#f43f5e;color:#fff;font-size:9px;font-weight:700;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #0f1929}
 .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#000;cursor:pointer}
-.main{display:flex;flex-direction:column;gap:12px;padding:12px;max-width:480px;margin:0 auto}
-.hero-card{background:linear-gradient(145deg,#13233b 0%,#0e1d2f 50%,#091523 100%);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 18px 18px;position:relative;overflow:hidden}
-.hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1) 0%,transparent 65%);pointer-events:none}
+
+/* PAGES */
+.page{display:none;flex-direction:column;gap:12px;padding:12px;max-width:500px;margin:0 auto}
+.page.active{display:flex}
+
+/* CARD */
+.card{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px}
+.card-title{font-size:14px;font-weight:700;margin-bottom:14px}
+.card-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.card-sub{font-size:12px;color:#94a3b8;margin-top:2px}
+
+/* HERO */
+.hero-card{background:linear-gradient(145deg,#13233b,#0e1d2f,#091523);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 18px 18px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1),transparent 65%);pointer-events:none}
 .hero-label{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.hero-value{font-size:40px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:#f1f5f9;margin-bottom:12px}
+.hero-value{font-size:40px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:12px}
 .hero-dollar{font-size:24px;font-weight:600;color:#94a3b8;vertical-align:top;margin-top:6px;display:inline-block}
 .hero-dec{font-size:22px;font-weight:600;color:#94a3b8}
 .hero-change{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
@@ -40,74 +53,78 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#080e1a;c
 .hs-v{font-size:15px;font-weight:800;letter-spacing:-.3px}
 .hs-v.green{color:#10b981}
 .hs-l{font-size:10px;color:#94a3b8;font-weight:500}
-.hs-divider{width:1px;height:28px;background:rgba(255,255,255,.07);flex-shrink:0}
+.hdiv{width:1px;height:28px;background:rgba(255,255,255,.07);flex-shrink:0}
+
+/* PILLS */
 .pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:600}
-.pill-green{background:rgba(16,185,129,.14);color:#10b981}
-.pill-muted{background:rgba(148,163,184,.1);color:#94a3b8}
-.ticker-wrap{overflow:hidden;background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 0;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
-.ticker-scroll{display:flex;gap:0;width:max-content;animation:ticker 22s linear infinite}
+.p-green{background:rgba(16,185,129,.14);color:#10b981}
+.p-muted{background:rgba(148,163,184,.1);color:#94a3b8}
+.p-amber{background:rgba(245,158,11,.14);color:#f59e0b}
+.p-red{background:rgba(244,63,94,.14);color:#f43f5e}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-inner{display:flex;width:max-content;animation:ticker 22s linear infinite}
 .tk{padding:0 20px;font-size:12px;color:#94a3b8;border-right:1px solid rgba(255,255,255,.07);white-space:nowrap;display:flex;align-items:center;gap:5px}
-.tk b{color:#f1f5f9;font-weight:600}
-.tk em{font-style:normal;font-weight:700}
-.g{color:#10b981}
-.r{color:#f43f5e}
+.tk b{color:#f1f5f9;font-weight:600}.tk em{font-style:normal;font-weight:700}
+.g{color:#10b981}.r{color:#f43f5e}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PERIOD TABS */
 .period-row{display:flex;gap:4px;background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:4px}
-.per{flex:1;background:none;border:none;font-family:inherit;font-size:12px;font-weight:600;color:#94a3b8;padding:7px 4px;border-radius:7px;cursor:pointer;transition:all .15s;min-height:36px}
+.per{flex:1;background:none;border:none;font-family:inherit;font-size:12px;font-weight:600;color:#94a3b8;padding:7px 2px;border-radius:7px;cursor:pointer;min-height:36px}
 .per:active{opacity:.7}
 .per.active{background:rgba(245,158,11,.14);color:#f59e0b}
-.card{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px}
-.card-title{font-size:14px;font-weight:700}
-.card-sub{font-size:12px;color:#94a3b8;margin-top:2px}
-.card-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
-.card-row--wrap{flex-wrap:wrap}
+
+/* CHART */
+.chart-box{position:relative;height:180px}
+.chart-box canvas{width:100%!important;height:100%!important}
 .legend{display:flex;align-items:center;gap:12px}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:#94a3b8}
 .leg i{display:block;width:10px;height:3px;border-radius:99px;flex-shrink:0}
-.chart-box{position:relative;height:180px}
-.chart-box canvas{width:100%!important;height:100%!important}
+
+/* METRIC CARDS */
 .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .mcard{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:7px}
 .mcard-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
-.mcard-icon.amber{background:rgba(245,158,11,.14)}
-.mcard-icon.green{background:rgba(16,185,129,.14)}
-.mcard-icon.blue{background:rgba(59,130,246,.14)}
-.mcard-icon.red{background:rgba(244,63,94,.14)}
+.ic-a{background:rgba(245,158,11,.14)}.ic-g{background:rgba(16,185,129,.14)}.ic-b{background:rgba(59,130,246,.14)}.ic-r{background:rgba(244,63,94,.14)}
 .mcard-val{font-size:20px;font-weight:800;letter-spacing:-.5px}
-.mcard-val.green{color:#10b981}
-.mcard-val.red{color:#f43f5e}
+.mcard-val.green{color:#10b981}.mcard-val.red{color:#f43f5e}
 .mcard-lbl{font-size:11px;color:#94a3b8;font-weight:500}
+
+/* TABLE */
 .search-row{display:flex;gap:7px;align-items:center}
-.search-inp{background:#162236;border:1px solid rgba(255,255,255,.07);border-radius:7px;color:#f1f5f9;font-family:inherit;font-size:13px;padding:7px 11px;outline:none;width:130px;min-height:36px}
+.search-inp{background:#162236;border:1px solid rgba(255,255,255,.07);border-radius:7px;color:#f1f5f9;font-family:inherit;font-size:13px;padding:7px 11px;outline:none;flex:1;min-height:36px}
 .search-inp::placeholder{color:#334155}
 .btn-add{background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.3);border-radius:7px;color:#f59e0b;font-family:inherit;font-size:12px;font-weight:700;padding:7px 13px;cursor:pointer;white-space:nowrap;min-height:36px}
 .table-wrap{overflow-x:auto;margin:0 -16px;padding:0 16px}
 .htbl{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
 .htbl thead th{text-align:left;padding:8px;font-size:10.5px;font-weight:600;color:#94a3b8;letter-spacing:.4px;border-bottom:1px solid rgba(255,255,255,.07)}
-.htbl thead th.tr{text-align:right}
-.htbl tbody tr{border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer}
+.htbl th.tr,.htbl td.tr{text-align:right}
+.htbl tbody tr{border-bottom:1px solid rgba(255,255,255,.04)}
 .htbl tbody tr:active{background:#162236}
 .htbl tbody tr:last-child{border-bottom:none}
 .htbl td{padding:11px 8px}
-.htbl td.tr{text-align:right}
 .sym{font-weight:700;font-size:13.5px;display:block}
 .nm{font-size:11px;color:#94a3b8;margin-top:1px;display:block}
-.two-col{display:flex;flex-direction:column;gap:12px}
+
+/* DONUT */
 .donut-area{position:relative;width:140px;height:140px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
 .donut-lbl{position:absolute;text-align:center;pointer-events:none}
-.dl-v{font-size:17px;font-weight:800}
-.dl-s{font-size:11px;color:#94a3b8}
+.dl-v{font-size:17px;font-weight:800}.dl-s{font-size:11px;color:#94a3b8}
 .alloc-rows{display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
-.al-row{display:flex;align-items:center;gap:8px;font-size:12.5px}
+.al-row{display:flex;align-items:center;gap:8px}
 .al-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .al-name{flex:1;color:#94a3b8;font-size:12px}
 .al-bar{width:44px;height:3px;background:#162236;border-radius:99px;overflow:hidden;flex-shrink:0}
 .al-fill{height:100%;border-radius:99px}
 .al-pct{font-size:12px;font-weight:700;width:34px;text-align:right}
+
+/* ACTIVITY */
 .link-sm{font-size:12px;color:#f59e0b;text-decoration:none}
 .acts{display:flex;flex-direction:column}
-.act{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.act:last-child{border-bottom:none;padding-bottom:2px}
+.act{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.act:last-child{border-bottom:none}
 .act-badge{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:800;flex-shrink:0;letter-spacing:.3px}
 .ab-buy{background:rgba(16,185,129,.14);color:#10b981}
 .ab-sell{background:rgba(244,63,94,.14);color:#f43f5e}
@@ -116,250 +133,393 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#080e1a;c
 .act-sym{font-size:13px;font-weight:700}
 .act-desc{font-size:11px;color:#94a3b8;margin-top:2px}
 .act-amt{font-size:13px;font-weight:700;flex-shrink:0}
+
+/* RISK */
 .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
 .ri-lbl{font-size:11px;color:#94a3b8;margin-bottom:5px}
 .ri-val{font-size:18px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
-.ri-val.g{color:#10b981}
-.ri-val.r{color:#f43f5e}
+.ri-val.g{color:#10b981}.ri-val.r{color:#f43f5e}
 .ri-bar{height:3px;background:#162236;border-radius:99px;overflow:hidden}
 .ri-fill{height:100%;border-radius:99px;width:0;transition:width .9s cubic-bezier(.4,0,.2,1)}
-.botnav{position:fixed;bottom:0;left:0;right:0;z-index:999;height:calc(var(--botnav) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#0f1929;border-top:1px solid rgba(255,255,255,.07);display:flex}
-.bn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#334155;font-size:10px;font-weight:600;min-height:44px;transition:color .15s;-webkit-tap-highlight-color:transparent}
+
+/* MARKET PAGE */
+.mkt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mkt-item{background:#162236;border-radius:10px;padding:12px}
+.mkt-sym{font-size:11px;font-weight:700;color:#94a3b8;margin-bottom:4px}
+.mkt-price{font-size:17px;font-weight:800;margin-bottom:2px}
+.mkt-chg{font-size:12px;font-weight:600}
+.section-label{font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+
+/* WATCHLIST PAGE */
+.watch-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.watch-item:last-child{border-bottom:none}
+.watch-info{flex:1}
+.watch-sym{font-size:14px;font-weight:700}
+.watch-name{font-size:11px;color:#94a3b8;margin-top:2px}
+.watch-right{text-align:right}
+.watch-price{font-size:14px;font-weight:700}
+.watch-chg{font-size:12px;font-weight:600;margin-top:2px}
+.watch-alert{width:32px;height:32px;background:#162236;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#94a3b8;flex-shrink:0;cursor:pointer;border:none}
+.watch-alert:active{background:#1e2e45}
+.watch-alert.on{background:rgba(245,158,11,.14);color:#f59e0b}
+
+/* SETTINGS PAGE */
+.settings-section{margin-bottom:20px}
+.settings-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.setting-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.setting-row:last-child{border-bottom:none}
+.setting-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.setting-info{flex:1}
+.setting-title{font-size:13.5px;font-weight:600}
+.setting-sub{font-size:11px;color:#94a3b8;margin-top:2px}
+.toggle{width:44px;height:24px;border-radius:99px;background:#162236;position:relative;cursor:pointer;border:none;flex-shrink:0;transition:background .2s}
+.toggle.on{background:#f59e0b}
+.toggle::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s}
+.toggle.on::after{transform:translateX(20px)}
+.chevron{color:#334155;flex-shrink:0}
+.profile-card{display:flex;align-items:center;gap:14px;padding:16px;background:#162236;border-radius:12px;margin-bottom:16px}
+.profile-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#000;flex-shrink:0}
+.profile-name{font-size:16px;font-weight:700}
+.profile-email{font-size:12px;color:#94a3b8;margin-top:3px}
+.profile-badge{display:inline-flex;margin-top:5px;padding:2px 8px;border-radius:99px;background:rgba(245,158,11,.14);color:#f59e0b;font-size:10px;font-weight:700}
+
+/* BOTTOM NAV */
+.botnav{position:fixed;bottom:0;left:0;right:0;z-index:999;height:calc(var(--bot) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#0f1929;border-top:1px solid rgba(255,255,255,.07);display:flex}
+.bn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#334155;font-size:10px;font-weight:600;min-height:44px;-webkit-tap-highlight-color:transparent;cursor:pointer;border:none;background:none;font-family:inherit;transition:color .15s}
 .bn svg{stroke:currentColor}
 .bn.active{color:#f59e0b}
-@media(min-width:640px){.main{padding:20px;gap:16px}.chart-box{height:220px}.two-col{flex-direction:row}.two-col .card{flex:1}.risk-grid{grid-template-columns:repeat(3,1fr)}.hero-value{font-size:48px}}
-@media(min-width:1024px){.botnav{display:none}body{padding-bottom:0}.chart-box{height:250px}.risk-grid{grid-template-columns:repeat(6,1fr)}}
+
+/* PORTFOLIO PAGE EXTRAS */
+.perf-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.perf-row:last-child{border-bottom:none}
+.perf-label{font-size:13px;color:#94a3b8}
+.perf-val{font-size:13px;font-weight:700}
+
+@media(min-width:640px){
+  .page{padding:20px;gap:16px;max-width:600px}
+  .chart-box{height:220px}
+  .metrics-grid{grid-template-columns:repeat(4,1fr)}
+  .risk-grid{grid-template-columns:repeat(3,1fr)}
+  .mkt-grid{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-icon">
-        <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
-          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <polyline points="16 7 22 7 22 13" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="brand-name">QuantEdge</span>
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="topbar-right">
-      <div class="live-pill"><span class="live-dot"></span>LIVE</div>
-      <button class="icon-btn" aria-label="Notifications">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-        <span class="badge-dot">3</span>
-      </button>
-      <div class="avatar">R</div>
+    <span class="brand-name">QuantEdge</span>
+  </div>
+  <div class="topbar-right">
+    <div class="live-pill"><span class="live-dot"></span>LIVE</div>
+    <button class="icon-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+      <span class="notif-dot">3</span>
+    </button>
+    <div class="avatar">R</div>
+  </div>
+</header>
+
+<!-- ═══════════════ PAGE: HOME ═══════════════ -->
+<div class="page active" id="pg-home">
+
+  <section class="hero-card">
+    <p class="hero-label">Total Portfolio</p>
+    <div class="hero-value"><span class="hero-dollar">$</span>847,392<span class="hero-dec">.50</span></div>
+    <div class="hero-change">
+      <span class="pill p-green">▲ +$12,847 · +1.54%</span>
+      <span class="hero-date">Today, Jun 14</span>
     </div>
-  </header>
-
-  <main class="main">
-
-    <section class="hero-card">
-      <p class="hero-label">Total Portfolio</p>
-      <div class="hero-value"><span class="hero-dollar">$</span>847,392<span class="hero-dec">.50</span></div>
-      <div class="hero-change">
-        <span class="pill pill-green">▲ +$12,847 · +1.54%</span>
-        <span class="hero-date">Today, Jun 14</span>
-      </div>
-      <div class="hero-stats">
-        <div class="hs"><span class="hs-v green">+21.08%</span><span class="hs-l">Return</span></div>
-        <div class="hs-divider"></div>
-        <div class="hs"><span class="hs-v green">8.74%</span><span class="hs-l">Yield p.a.</span></div>
-        <div class="hs-divider"></div>
-        <div class="hs"><span class="hs-v">1.87</span><span class="hs-l">Sharpe</span></div>
-        <div class="hs-divider"></div>
-        <div class="hs"><span class="hs-v">0.92</span><span class="hs-l">Beta</span></div>
-      </div>
-    </section>
-
-    <div class="ticker-wrap">
-      <div class="ticker-scroll" id="ticker">
-        <span class="tk"><b>S&amp;P 500</b> 5,847 <em class="g">+1.24%</em></span>
-        <span class="tk"><b>NASDAQ</b> 18,934 <em class="g">+0.87%</em></span>
-        <span class="tk"><b>DOW</b> 42,156 <em class="r">−0.31%</em></span>
-        <span class="tk"><b>BTC</b> $104,230 <em class="g">+2.14%</em></span>
-        <span class="tk"><b>GOLD</b> $3,342 <em class="g">+0.52%</em></span>
-        <span class="tk"><b>VIX</b> 18.42 <em class="r">+5.21%</em></span>
-      </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-v green">+21.08%</span><span class="hs-l">Return</span></div>
+      <div class="hdiv"></div>
+      <div class="hs"><span class="hs-v green">8.74%</span><span class="hs-l">Yield p.a.</span></div>
+      <div class="hdiv"></div>
+      <div class="hs"><span class="hs-v">1.87</span><span class="hs-l">Sharpe</span></div>
+      <div class="hdiv"></div>
+      <div class="hs"><span class="hs-v">0.92</span><span class="hs-l">Beta</span></div>
     </div>
+  </section>
 
-    <div class="period-row">
-      <button class="per active" data-p="1W">1W</button>
-      <button class="per" data-p="1M">1M</button>
-      <button class="per" data-p="3M">3M</button>
-      <button class="per" data-p="6M">6M</button>
-      <button class="per" data-p="1Y">1Y</button>
-      <button class="per" data-p="ALL">ALL</button>
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="ticker">
+      <span class="tk"><b>S&amp;P 500</b> 5,847 <em class="g">+1.24%</em></span>
+      <span class="tk"><b>NASDAQ</b> 18,934 <em class="g">+0.87%</em></span>
+      <span class="tk"><b>DOW</b> 42,156 <em class="r">−0.31%</em></span>
+      <span class="tk"><b>BTC</b> $104,230 <em class="g">+2.14%</em></span>
+      <span class="tk"><b>GOLD</b> $3,342 <em class="g">+0.52%</em></span>
+      <span class="tk"><b>VIX</b> 18.42 <em class="r">+5.21%</em></span>
     </div>
+  </div>
 
-    <div class="card">
-      <div class="card-row">
-        <div><div class="card-title">Performance</div><div class="card-sub">vs S&amp;P 500 benchmark</div></div>
-        <div class="legend">
-          <span class="leg"><i style="background:#f59e0b"></i>Portfolio</span>
-          <span class="leg"><i style="background:#475569"></i>Bench</span>
-        </div>
-      </div>
-      <div class="chart-box"><canvas id="perfChart"></canvas></div>
-    </div>
+  <div class="period-row">
+    <button class="per active">1W</button><button class="per">1M</button><button class="per">3M</button><button class="per">6M</button><button class="per">1Y</button><button class="per">ALL</button>
+  </div>
 
-    <div class="metrics-grid">
-      <div class="mcard">
-        <div class="mcard-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <div class="mcard-val green">+$147K</div><div class="mcard-lbl">Total Return</div>
-      </div>
-      <div class="mcard">
-        <div class="mcard-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div class="mcard-val green">8.74%</div><div class="mcard-lbl">Annual Yield</div>
-      </div>
-      <div class="mcard">
-        <div class="mcard-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <div class="mcard-val">1.87</div><div class="mcard-lbl">Sharpe Ratio</div>
-      </div>
-      <div class="mcard">
-        <div class="mcard-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div class="mcard-val red">−8.34%</div><div class="mcard-lbl">Max Drawdown</div>
+  <div class="card">
+    <div class="card-row" style="margin-bottom:14px">
+      <div><div style="font-size:14px;font-weight:700">Performance</div><div class="card-sub">vs S&amp;P 500 benchmark</div></div>
+      <div class="legend">
+        <span class="leg"><i style="background:#f59e0b"></i>Portfolio</span>
+        <span class="leg"><i style="background:#475569"></i>Bench</span>
       </div>
     </div>
+    <div class="chart-box"><canvas id="perfChart"></canvas></div>
+  </div>
 
-    <div class="card">
-      <div class="card-row card-row--wrap">
-        <div class="card-title">Holdings</div>
-        <div class="search-row">
-          <input class="search-inp" id="hsearch" type="text" placeholder="Search symbol…" />
-          <button class="btn-add">+ Add</button>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table class="htbl" id="htbl">
-          <thead><tr><th>Asset</th><th class="tr">Price</th><th class="tr">1D %</th><th class="tr">Value</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
+  <div class="metrics-grid">
+    <div class="mcard"><div class="mcard-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mcard-val green">+$147K</div><div class="mcard-lbl">Total Return</div></div>
+    <div class="mcard"><div class="mcard-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="mcard-val green">8.74%</div><div class="mcard-lbl">Annual Yield</div></div>
+    <div class="mcard"><div class="mcard-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mcard-val">1.87</div><div class="mcard-lbl">Sharpe Ratio</div></div>
+    <div class="mcard"><div class="mcard-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mcard-val red">−8.34%</div><div class="mcard-lbl">Max Drawdown</div></div>
+  </div>
 
-    <div class="two-col">
-      <div class="card">
-        <div class="card-title" style="margin-bottom:14px">Allocation</div>
-        <div class="donut-area">
-          <canvas id="donut" width="140" height="140"></canvas>
-          <div class="donut-lbl"><div class="dl-v">$847K</div><div class="dl-s">Total</div></div>
-        </div>
-        <div class="alloc-rows" id="allocRows"></div>
-      </div>
-      <div class="card">
-        <div class="card-row"><div class="card-title">Activity</div><a class="link-sm" href="#">See all</a></div>
-        <div class="acts" id="acts"></div>
+  <div class="card">
+    <div class="card-row"><div style="font-size:14px;font-weight:700">Recent Activity</div><a class="link-sm" href="#">See all</a></div>
+    <div class="acts" id="acts-home"></div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PAGE: PORTFOLIO ═══════════════ -->
+<div class="page" id="pg-portfolio">
+
+  <div class="card">
+    <div class="card-row" style="margin-bottom:14px">
+      <div style="font-size:14px;font-weight:700">Holdings</div>
+      <div class="search-row" style="flex:1;max-width:220px">
+        <input class="search-inp" id="hsearch" type="text" placeholder="Search…"/>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-row" style="margin-bottom:16px">
-        <div class="card-title">Risk Metrics</div>
-        <span class="pill pill-muted">Monthly</span>
-      </div>
-      <div class="risk-grid" id="riskGrid"></div>
+    <div class="table-wrap">
+      <table class="htbl" id="htbl">
+        <thead><tr><th>Asset</th><th class="tr">Price</th><th class="tr">1D%</th><th class="tr">Value</th></tr></thead>
+        <tbody></tbody>
+      </table>
     </div>
+  </div>
 
-    <div style="height:4px"></div>
-  </main>
+  <div class="card">
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Allocation</div>
+    <div class="donut-area">
+      <canvas id="donut" width="140" height="140"></canvas>
+      <div class="donut-lbl"><div class="dl-v">$847K</div><div class="dl-s">Total</div></div>
+    </div>
+    <div class="alloc-rows" id="allocRows"></div>
+  </div>
 
-  <nav class="botnav">
-    <a href="#" class="bn active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Home</span></a>
-    <a href="#" class="bn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg><span>Portfolio</span></a>
-    <a href="#" class="bn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-5 5"/></svg><span>Markets</span></a>
-    <a href="#" class="bn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>Watch</span></a>
-    <a href="#" class="bn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span>More</span></a>
-  </nav>
+  <div class="card">
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Performance Summary</div>
+    <div class="perf-row"><span class="perf-label">Cost Basis</span><span class="perf-val">$700,000</span></div>
+    <div class="perf-row"><span class="perf-label">Current Value</span><span class="perf-val">$847,392</span></div>
+    <div class="perf-row"><span class="perf-label">Total Gain</span><span class="perf-val" style="color:#10b981">+$147,392</span></div>
+    <div class="perf-row"><span class="perf-label">Total Return</span><span class="perf-val" style="color:#10b981">+21.08%</span></div>
+    <div class="perf-row"><span class="perf-label">Day Gain</span><span class="perf-val" style="color:#10b981">+$12,847</span></div>
+    <div class="perf-row"><span class="perf-label">Dividend Income (YTD)</span><span class="perf-val">$4,230</span></div>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script>
-'use strict';
-const HOLDINGS=[{sym:'NVDA',name:'NVIDIA Corp.',price:134.90,shares:410,cost:48.72,chg:+2.61},{sym:'AAPL',name:'Apple Inc.',price:211.84,shares:185,cost:148.30,chg:+1.24},{sym:'MSFT',name:'Microsoft Corp.',price:442.57,shares:72,cost:280.14,chg:+0.88},{sym:'META',name:'Meta Platforms',price:603.18,shares:38,cost:210.80,chg:+1.52},{sym:'AMZN',name:'Amazon.com',price:223.50,shares:45,cost:154.80,chg:+1.07},{sym:'GOOGL',name:'Alphabet Inc.',price:186.42,shares:95,cost:121.30,chg:-0.34},{sym:'JPM',name:'JPMorgan Chase',price:264.38,shares:55,cost:184.20,chg:-0.76},{sym:'TSM',name:'Taiwan Semiconductor',price:192.74,shares:88,cost:102.50,chg:+3.14},{sym:'BRK.B',name:'Berkshire Hathaway',price:483.20,shares:28,cost:348.50,chg:+0.21},{sym:'VTI',name:'Vanguard Total Market',price:268.30,shares:50,cost:220.40,chg:+0.64}];
+  <div class="card">
+    <div style="font-size:14px;font-weight:700;margin-bottom:16px">Risk Metrics</div>
+    <div class="risk-grid" id="riskGrid"></div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PAGE: MARKETS ═══════════════ -->
+<div class="page" id="pg-markets">
+
+  <div class="card">
+    <div class="section-label">Indices</div>
+    <div class="mkt-grid">
+      <div class="mkt-item"><div class="mkt-sym">S&amp;P 500</div><div class="mkt-price">5,847</div><div class="mkt-chg g">+1.24%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">NASDAQ</div><div class="mkt-price">18,934</div><div class="mkt-chg g">+0.87%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">DOW</div><div class="mkt-price">42,156</div><div class="mkt-chg r">−0.31%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">RUSSELL 2K</div><div class="mkt-price">2,043</div><div class="mkt-chg g">+0.55%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">VIX</div><div class="mkt-price">18.42</div><div class="mkt-chg r">+5.21%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">DAX</div><div class="mkt-price">18,720</div><div class="mkt-chg g">+0.43%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Crypto</div>
+    <div class="mkt-grid">
+      <div class="mkt-item"><div class="mkt-sym">BTC</div><div class="mkt-price">$104,230</div><div class="mkt-chg g">+2.14%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">ETH</div><div class="mkt-price">$3,847</div><div class="mkt-chg g">+1.88%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">SOL</div><div class="mkt-price">$178.40</div><div class="mkt-chg g">+3.21%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">BNB</div><div class="mkt-price">$682</div><div class="mkt-chg r">−0.44%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Commodities</div>
+    <div class="mkt-grid">
+      <div class="mkt-item"><div class="mkt-sym">GOLD</div><div class="mkt-price">$3,342</div><div class="mkt-chg g">+0.52%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">SILVER</div><div class="mkt-price">$32.84</div><div class="mkt-chg g">+0.78%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">CRUDE OIL</div><div class="mkt-price">$71.20</div><div class="mkt-chg r">−1.34%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">NAT GAS</div><div class="mkt-price">$2.84</div><div class="mkt-chg r">−0.70%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Bonds &amp; Rates</div>
+    <div class="mkt-grid">
+      <div class="mkt-item"><div class="mkt-sym">10Y UST</div><div class="mkt-price">4.28%</div><div class="mkt-chg r">+0.03</div></div>
+      <div class="mkt-item"><div class="mkt-sym">2Y UST</div><div class="mkt-price">4.71%</div><div class="mkt-chg r">+0.02</div></div>
+      <div class="mkt-item"><div class="mkt-sym">DXY</div><div class="mkt-price">104.2</div><div class="mkt-chg r">−0.18%</div></div>
+      <div class="mkt-item"><div class="mkt-sym">EUR/USD</div><div class="mkt-price">1.0842</div><div class="mkt-chg g">+0.22%</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PAGE: WATCHLIST ═══════════════ -->
+<div class="page" id="pg-watchlist">
+
+  <div class="card">
+    <div class="card-row"><div style="font-size:14px;font-weight:700">Watchlist</div><button class="btn-add" style="margin-left:auto">+ Add</button></div>
+    <div id="watchList"></div>
+  </div>
+
+  <div class="card">
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Price Alerts</div>
+    <div class="acts">
+      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">NVDA above $150</div><div class="act-desc">Alert when price crosses $150.00</div></div><span class="pill p-amber" style="font-size:10px">Active</span></div>
+      <div class="act"><div class="act-badge ab-sell" style="font-size:10px">▼</div><div class="act-info"><div class="act-sym">TSLA below $180</div><div class="act-desc">Alert when price drops below $180.00</div></div><span class="pill p-muted" style="font-size:10px">Paused</span></div>
+      <div class="act"><div class="act-badge ab-buy" style="font-size:10px">▲</div><div class="act-info"><div class="act-sym">BTC above $110K</div><div class="act-desc">Alert when BTC crosses $110,000</div></div><span class="pill p-amber" style="font-size:10px">Active</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PAGE: MORE ═══════════════ -->
+<div class="page" id="pg-more">
+
+  <div class="profile-card">
+    <div class="profile-av">R</div>
+    <div>
+      <div class="profile-name">Raskoff</div>
+      <div class="profile-email">raskoff.invest@gmail.com</div>
+      <span class="profile-badge">Pro Investor</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="settings-section">
+      <div class="settings-label">Preferences</div>
+      <div class="setting-row"><div class="setting-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="17" height="17"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="setting-info"><div class="setting-title">Push Notifications</div><div class="setting-sub">Price alerts &amp; news</div></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="setting-row"><div class="setting-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><div class="setting-info"><div class="setting-title">Dark Mode</div><div class="setting-sub">Always on</div></div><button class="toggle on"></button></div>
+      <div class="setting-row"><div class="setting-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="17" height="17"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="setting-info"><div class="setting-title">Currency</div><div class="setting-sub">USD — US Dollar</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="setting-info"><div class="setting-title">Benchmark</div><div class="setting-sub">S&amp;P 500 (SPX)</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Account</div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="setting-info"><div class="setting-title">Edit Profile</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div class="setting-info"><div class="setting-title">Security &amp; Privacy</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="setting-row"><div class="setting-icon" style="background:rgba(244,63,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div class="setting-info"><div class="setting-title" style="color:#f43f5e">Sign Out</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="botnav">
+  <button class="bn active" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Home</span></button>
+  <button class="bn" data-page="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg><span>Portfolio</span></button>
+  <button class="bn" data-page="markets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-5 5"/></svg><span>Markets</span></button>
+  <button class="bn" data-page="watchlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>Watch</span></button>
+  <button class="bn" data-page="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>More</span></button>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const HOLDINGS=[{sym:'NVDA',name:'NVIDIA Corp.',price:134.90,shares:410,chg:+2.61},{sym:'AAPL',name:'Apple Inc.',price:211.84,shares:185,chg:+1.24},{sym:'MSFT',name:'Microsoft Corp.',price:442.57,shares:72,chg:+0.88},{sym:'META',name:'Meta Platforms',price:603.18,shares:38,chg:+1.52},{sym:'AMZN',name:'Amazon.com',price:223.50,shares:45,chg:+1.07},{sym:'GOOGL',name:'Alphabet Inc.',price:186.42,shares:95,chg:-0.34},{sym:'JPM',name:'JPMorgan Chase',price:264.38,shares:55,chg:-0.76},{sym:'TSM',name:'Taiwan Semi.',price:192.74,shares:88,chg:+3.14},{sym:'BRK.B',name:'Berkshire Hathaway',price:483.20,shares:28,chg:+0.21},{sym:'VTI',name:'Vanguard Total Mkt',price:268.30,shares:50,chg:+0.64}];
 const ALLOC=[{name:'Technology',pct:46.2,color:'#f59e0b'},{name:'Semiconductor',pct:15.1,color:'#f43f5e'},{name:'Index/ETF',pct:13.4,color:'#10b981'},{name:'Financials',pct:11.7,color:'#3b82f6'},{name:'Consumer',pct:9.6,color:'#8b5cf6'},{name:'Other',pct:4.0,color:'#475569'}];
 const ACTS=[{type:'buy',sym:'NVDA',desc:'Bought 50 shares',date:'Jun 12',amt:'+$6,745',pos:true},{type:'sell',sym:'TSLA',desc:'Sold 30 shares',date:'Jun 10',amt:'−$5,312',pos:false},{type:'div',sym:'AAPL',desc:'Dividend',date:'Jun 8',amt:'+$215',pos:true},{type:'buy',sym:'META',desc:'Bought 8 shares',date:'Jun 5',amt:'+$4,825',pos:true},{type:'div',sym:'JPM',desc:'Dividend',date:'Jun 1',amt:'+$138',pos:true}];
 const RISKS=[{lbl:'Max Drawdown',val:'−8.34%',cls:'r',pct:34,color:'#f43f5e'},{lbl:'Volatility',val:'12.7%',cls:'',pct:50,color:'#f59e0b'},{lbl:'Win Rate',val:'67.3%',cls:'g',pct:67,color:'#10b981'},{lbl:'Sortino',val:'2.41',cls:'g',pct:80,color:'#10b981'},{lbl:'VaR 95%',val:'−2.18%',cls:'r',pct:22,color:'#f43f5e'},{lbl:'Corr SPX',val:'0.78',cls:'',pct:78,color:'#3b82f6'}];
+const WATCH=[{sym:'TSLA',name:'Tesla Inc.',price:248.50,chg:-1.82},{sym:'AMZN',name:'Amazon.com',price:223.50,chg:+1.07},{sym:'NFLX',name:'Netflix Inc.',price:712.30,chg:+0.44},{sym:'AMD',name:'AMD Inc.',price:167.80,chg:+2.38},{sym:'PLTR',name:'Palantir Tech.',price:31.42,chg:+4.12},{sym:'COIN',name:'Coinbase Global',price:248.10,chg:+3.87}];
 
 const fmt=(n,d=2)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 
-function makeSeries(seed,n){const d=[seed];for(let i=1;i<n;i++)d.push(+(d[d.length-1]*(1+(Math.random()-.43)*.018)).toFixed(4));return d;}
+// NAV
+document.querySelectorAll('.bn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const pg=btn.dataset.page;
+    document.querySelectorAll('.bn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pg-'+pg).classList.add('active');
+    window.scrollTo(0,0);
+  });
+});
 
-function initPerf(){
-  const el=document.getElementById('perfChart');if(!el)return;
-  const ctx=el.getContext('2d'),n=30;
-  const port=makeSeries(.80,n);port[n-1]=1.2108;
-  const bench=makeSeries(.84,n);bench[n-1]=1.0924;
-  const grad=ctx.createLinearGradient(0,0,0,180);
-  grad.addColorStop(0,'rgba(245,158,11,.22)');grad.addColorStop(1,'rgba(245,158,11,0)');
-  const labels=Array.from({length:n},(_,i)=>{const d=new Date(2026,5,14);d.setDate(d.getDate()-(n-1-i));return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});});
+// PERIOD TABS
+document.querySelectorAll('.per').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.per').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// TICKER
+const tk=document.getElementById('ticker');
+if(tk)tk.innerHTML+=tk.innerHTML;
+
+// PERF CHART
+function makeSeries(s,n){const d=[s];for(let i=1;i<n;i++)d.push(+(d[d.length-1]*(1+(Math.random()-.43)*.018)).toFixed(4));return d;}
+window.addEventListener('load',()=>{
   Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(255,255,255,0.05)';Chart.defaults.font.family="'Inter',sans-serif";Chart.defaults.font.size=10;
-  new Chart(el,{type:'line',data:{labels,datasets:[{label:'Portfolio',data:port.map(v=>+(v*100-100).toFixed(2)),borderColor:'#f59e0b',borderWidth:2,fill:true,backgroundColor:grad,pointRadius:0,pointHoverRadius:4,tension:.45},{label:'S&P 500',data:bench.map(v=>+(v*100-100).toFixed(2)),borderColor:'#475569',borderWidth:1.5,borderDash:[5,4],fill:false,pointRadius:0,tension:.45}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,titleColor:'#94a3b8',bodyColor:'#f1f5f9',callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}}}});
-}
+  const el=document.getElementById('perfChart');
+  if(el){
+    const ctx=el.getContext('2d'),n=30,port=makeSeries(.80,n),bench=makeSeries(.84,n);
+    port[n-1]=1.2108;bench[n-1]=1.0924;
+    const g=ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,'rgba(245,158,11,.22)');g.addColorStop(1,'rgba(245,158,11,0)');
+    const labels=Array.from({length:n},(_,i)=>{const d=new Date(2026,5,14);d.setDate(d.getDate()-(n-1-i));return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});});
+    new Chart(el,{type:'line',data:{labels,datasets:[{label:'Portfolio',data:port.map(v=>+(v*100-100).toFixed(2)),borderColor:'#f59e0b',borderWidth:2,fill:true,backgroundColor:g,pointRadius:0,tension:.45},{label:'Bench',data:bench.map(v=>+(v*100-100).toFixed(2)),borderColor:'#475569',borderWidth:1.5,borderDash:[5,4],fill:false,pointRadius:0,tension:.45}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}}}});
+  }
+  // DONUT
+  const de=document.getElementById('donut');
+  if(de){new Chart(de,{type:'doughnut',data:{labels:ALLOC.map(a=>a.name),datasets:[{data:ALLOC.map(a=>a.pct),backgroundColor:ALLOC.map(a=>a.color),borderColor:'#111d2e',borderWidth:3,hoverOffset:4}]},options:{responsive:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10}}}});}
+  const ar=document.getElementById('allocRows');
+  if(ar)ar.innerHTML=ALLOC.map(a=>`<div class="al-row"><span class="al-dot" style="background:${a.color}"></span><span class="al-name">${a.name}</span><div class="al-bar"><div class="al-fill" style="width:${a.pct}%;background:${a.color}"></div></div><span class="al-pct">${a.pct}%</span></div>`).join('');
+});
 
-function initDonut(){
-  const el=document.getElementById('donut');if(!el)return;
-  new Chart(el,{type:'doughnut',data:{labels:ALLOC.map(a=>a.name),datasets:[{data:ALLOC.map(a=>a.pct),backgroundColor:ALLOC.map(a=>a.color),borderColor:'#111d2e',borderWidth:3,hoverOffset:4}]},options:{responsive:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.label}: ${c.parsed.toFixed(1)}%`}}}}});
-  const rows=document.getElementById('allocRows');
-  if(rows)rows.innerHTML=ALLOC.map(a=>`<div class="al-row"><span class="al-dot" style="background:${a.color}"></span><span class="al-name">${a.name}</span><div class="al-bar"><div class="al-fill" style="width:${a.pct}%;background:${a.color}"></div></div><span class="al-pct">${a.pct}%</span></div>`).join('');
-}
-
+// HOLDINGS TABLE
 function renderHoldings(q=''){
   const tbody=document.querySelector('#htbl tbody');if(!tbody)return;
   const list=HOLDINGS.filter(h=>h.sym.toLowerCase().includes(q.toLowerCase())||h.name.toLowerCase().includes(q.toLowerCase()));
   tbody.innerHTML=list.map(h=>{
-    const val=h.price*h.shares,cc=h.chg>=0?'#10b981':'#f43f5e';
-    return `<tr><td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td><td class="tr">$${fmt(h.price)}</td><td class="tr" style="color:${cc}">${h.chg>=0?'+':''}${h.chg.toFixed(2)}%</td><td class="tr">$${fmt(val,0)}</td></tr>`;
+    const val=h.price*h.shares,c=h.chg>=0?'#10b981':'#f43f5e';
+    return `<tr><td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td><td class="tr">$${fmt(h.price)}</td><td class="tr" style="color:${c}">${h.chg>=0?'+':''}${h.chg.toFixed(2)}%</td><td class="tr">$${fmt(val,0)}</td></tr>`;
   }).join('');
 }
+renderHoldings();
+const inp=document.getElementById('hsearch');
+if(inp)inp.addEventListener('input',()=>renderHoldings(inp.value));
 
-function renderActs(){
-  const el=document.getElementById('acts');if(!el)return;
-  el.innerHTML=ACTS.map(a=>{
-    const bc=a.type==='buy'?'ab-buy':a.type==='sell'?'ab-sell':'ab-div',ac=a.pos?'color:#10b981':'color:#f43f5e';
-    return `<div class="act"><div class="act-badge ${bc}">${a.type.toUpperCase()}</div><div class="act-info"><div class="act-sym">${a.sym}</div><div class="act-desc">${a.desc} · ${a.date}</div></div><div class="act-amt" style="${ac}">${a.amt}</div></div>`;
-  }).join('');
+// ACTIVITY
+const actEl=document.getElementById('acts-home');
+if(actEl)actEl.innerHTML=ACTS.map(a=>{
+  const bc=a.type==='buy'?'ab-buy':a.type==='sell'?'ab-sell':'ab-div',ac=a.pos?'color:#10b981':'color:#f43f5e';
+  return `<div class="act"><div class="act-badge ${bc}">${a.type.toUpperCase()}</div><div class="act-info"><div class="act-sym">${a.sym}</div><div class="act-desc">${a.desc} · ${a.date}</div></div><div class="act-amt" style="${ac}">${a.amt}</div></div>`;
+}).join('');
+
+// RISK
+const rg=document.getElementById('riskGrid');
+if(rg){
+  rg.innerHTML=RISKS.map(r=>`<div class="ri"><div class="ri-lbl">${r.lbl}</div><div class="ri-val ${r.cls}">${r.val}</div><div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div></div>`).join('');
+  setTimeout(()=>rg.querySelectorAll('.ri-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),400);
 }
 
-function renderRisk(){
-  const el=document.getElementById('riskGrid');if(!el)return;
-  el.innerHTML=RISKS.map(r=>`<div class="ri"><div class="ri-lbl">${r.lbl}</div><div class="ri-val ${r.cls}">${r.val}</div><div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div></div>`).join('');
-  setTimeout(()=>el.querySelectorAll('.ri-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),350);
-}
-
-function initTicker(){const el=document.getElementById('ticker');if(el)el.innerHTML+=el.innerHTML;}
-
-document.addEventListener('DOMContentLoaded',()=>{
-  initTicker();
-
-  // Period tabs
-  document.querySelectorAll('.per').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('.per').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  // Bottom nav
-  document.querySelectorAll('.bn').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      document.querySelectorAll('.bn').forEach(b=>b.classList.remove('active'));
-      a.classList.add('active');
-    });
-  });
-
-  // Search
-  const inp=document.getElementById('hsearch');
-  if(inp)inp.addEventListener('input',()=>renderHoldings(inp.value));
-
-  // Render
-  initPerf();
-  initDonut();
-  renderHoldings();
-  renderActs();
-  renderRisk();
-});
-  </script>
+// WATCHLIST
+const wl=document.getElementById('watchList');
+if(wl)wl.innerHTML=WATCH.map(w=>{
+  const c=w.chg>=0?'#10b981':'#f43f5e';
+  return `<div class="watch-item"><div class="watch-info"><div class="watch-sym">${w.sym}</div><div class="watch-name">${w.name}</div></div><div class="watch-right"><div class="watch-price">$${fmt(w.price)}</div><div class="watch-chg" style="color:${c}">${w.chg>=0?'+':''}${w.chg.toFixed(2)}%</div></div></div>`;
+}).join('');
+</script>
 </body>
 </html>
