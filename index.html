@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#080e1a;--surf:#0f1929;--card:#111d2e;--card2:#162236;--bdr:rgba(255,255,255,.07);--bdr2:rgba(255,255,255,.04);--amber:#f59e0b;--a2:rgba(245,158,11,.14);--green:#10b981;--g2:rgba(16,185,129,.14);--red:#f43f5e;--r2:rgba(244,63,94,.14);--blue:#3b82f6;--b2:rgba(59,130,246,.14);--t1:#f1f5f9;--t2:#94a3b8;--t3:#334155;--top:56px;--bot:64px}
+:root{--bg:#080e1a;--surf:#0f1929;--card:#111d2e;--card2:#162236;--bdr:rgba(255,255,255,.07);--amber:#f59e0b;--green:#10b981;--red:#f43f5e;--blue:#3b82f6;--t1:#f1f5f9;--t2:#94a3b8;--t3:#334155;--top:56px;--bot:64px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
 body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5f9;min-height:100dvh;overflow-x:hidden;padding-top:var(--top);padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom))}
@@ -34,7 +34,6 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
 /* CARD */
 .card{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px}
-.card-title{font-size:14px;font-weight:700;margin-bottom:14px}
 .card-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
 .card-sub{font-size:12px;color:#94a3b8;margin-top:2px}
 
@@ -43,14 +42,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1),transparent 65%);pointer-events:none}
 .hero-label{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .hero-value{font-size:36px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:12px}
-.hero-dollar{font-size:20px;font-weight:600;color:#94a3b8;vertical-align:top;margin-top:5px;display:inline-block}
-.hero-dec{font-size:20px;font-weight:600;color:#94a3b8}
+.hero-sym{font-size:20px;font-weight:600;color:#94a3b8;vertical-align:top;margin-top:5px;display:inline-block}
 .hero-change{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .hero-date{font-size:11.5px;color:#94a3b8}
 .hero-stats{display:flex;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 4px;border-top:1px solid rgba(255,255,255,.07)}
 .hs{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
 .hs-v{font-size:14px;font-weight:800;letter-spacing:-.3px}
-.hs-v.green{color:#10b981}
+.hs-v.green{color:#10b981}.hs-v.red{color:#f43f5e}
 .hs-l{font-size:9.5px;color:#94a3b8;font-weight:500;text-align:center}
 .hdiv{width:1px;height:28px;background:rgba(255,255,255,.07);flex-shrink:0}
 
@@ -87,30 +85,37 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .mcard{background:#111d2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:7px}
 .mcard-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
 .ic-a{background:rgba(245,158,11,.14)}.ic-g{background:rgba(16,185,129,.14)}.ic-b{background:rgba(59,130,246,.14)}.ic-r{background:rgba(244,63,94,.14)}
-.mcard-val{font-size:19px;font-weight:800;letter-spacing:-.5px}
+.mcard-val{font-size:18px;font-weight:800;letter-spacing:-.5px}
 .mcard-val.green{color:#10b981}.mcard-val.red{color:#f43f5e}
 .mcard-lbl{font-size:11px;color:#94a3b8;font-weight:500}
 
 /* TABLE */
-.search-row{display:flex;gap:7px;align-items:center}
 .search-inp{background:#162236;border:1px solid rgba(255,255,255,.07);border-radius:7px;color:#f1f5f9;font-family:inherit;font-size:13px;padding:7px 11px;outline:none;flex:1;min-height:36px}
 .search-inp::placeholder{color:#334155}
-.btn-add{background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.3);border-radius:7px;color:#f59e0b;font-family:inherit;font-size:12px;font-weight:700;padding:7px 13px;cursor:pointer;white-space:nowrap;min-height:36px}
+.btn-sm{border-radius:7px;font-family:inherit;font-size:12px;font-weight:700;padding:7px 13px;cursor:pointer;white-space:nowrap;min-height:36px;border:1px solid}
+.btn-amber{background:rgba(245,158,11,.14);border-color:rgba(245,158,11,.3);color:#f59e0b}
+.btn-slate{background:rgba(148,163,184,.08);border-color:rgba(148,163,184,.2);color:#94a3b8}
+.btn-red{background:rgba(244,63,94,.14);border-color:rgba(244,63,94,.3);color:#f43f5e}
 .table-wrap{overflow-x:auto;margin:0 -16px;padding:0 16px}
 .htbl{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
 .htbl thead th{text-align:left;padding:8px;font-size:10.5px;font-weight:600;color:#94a3b8;letter-spacing:.4px;border-bottom:1px solid rgba(255,255,255,.07)}
 .htbl th.tr,.htbl td.tr{text-align:right}
 .htbl tbody tr{border-bottom:1px solid rgba(255,255,255,.04)}
-.htbl tbody tr:active{background:#162236}
 .htbl tbody tr:last-child{border-bottom:none}
-.htbl td{padding:11px 8px}
+.htbl td{padding:10px 8px;vertical-align:middle}
 .sym{font-weight:700;font-size:13.5px;display:block}
-.nm{font-size:11px;color:#94a3b8;margin-top:1px;display:block}
+.nm{font-size:10.5px;color:#94a3b8;margin-top:1px;display:block}
+.del-btn{width:28px;height:28px;border-radius:50%;background:rgba(244,63,94,.14);border:none;color:#f43f5e;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;flex-shrink:0}
+.edit-mode .del-btn{display:flex}
+.empty-state{text-align:center;padding:40px 20px;color:#334155}
+.empty-state svg{margin-bottom:12px;opacity:.4}
+.empty-state p{font-size:14px;margin-bottom:4px;color:#94a3b8}
+.empty-state small{font-size:12px}
 
 /* DONUT */
 .donut-area{position:relative;width:140px;height:140px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
 .donut-lbl{position:absolute;text-align:center;pointer-events:none}
-.dl-v{font-size:17px;font-weight:800}.dl-s{font-size:11px;color:#94a3b8}
+.dl-v{font-size:16px;font-weight:800}.dl-s{font-size:11px;color:#94a3b8}
 .alloc-rows{display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
 .al-row{display:flex;align-items:center;gap:8px}
 .al-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
@@ -179,20 +184,43 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 .profile-email{font-size:12px;color:#94a3b8;margin-top:3px}
 .profile-badge{display:inline-flex;margin-top:5px;padding:2px 8px;border-radius:99px;background:rgba(245,158,11,.14);color:#f59e0b;font-size:10px;font-weight:700}
 
-/* BOTTOM NAV */
-.botnav{position:fixed;bottom:0;left:0;right:0;z-index:999;height:calc(var(--bot) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#0f1929;border-top:1px solid rgba(255,255,255,.07);display:flex}
-.bn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#334155;font-size:10px;font-weight:600;min-height:44px;-webkit-tap-highlight-color:transparent;cursor:pointer;border:none;background:none;font-family:inherit;transition:color .15s}
-.bn svg{stroke:currentColor}
-.bn.active{color:#f59e0b}
-
-/* PORTFOLIO PAGE EXTRAS */
+/* PERF SUMMARY */
 .perf-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .perf-row:last-child{border-bottom:none}
 .perf-label{font-size:13px;color:#94a3b8}
 .perf-val{font-size:13px;font-weight:700}
 
-/* FUND BADGE */
-.fund-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;background:rgba(59,130,246,.14);color:#3b82f6;margin-left:4px;vertical-align:middle}
+/* MODAL / BOTTOM SHEET */
+.modal-overlay{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,0);pointer-events:none;transition:background .25s}
+.modal-overlay.open{background:rgba(0,0,0,.6);pointer-events:all}
+.modal-sheet{position:absolute;bottom:0;left:0;right:0;background:#0f1929;border-radius:20px 20px 0 0;border-top:1px solid rgba(255,255,255,.1);padding:0 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .3s cubic-bezier(.4,0,.2,1);max-width:500px;margin:0 auto}
+.modal-overlay.open .modal-sheet{transform:translateY(0)}
+.modal-handle{width:40px;height:4px;background:#334155;border-radius:99px;margin:12px auto 20px}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.modal-title{font-size:16px;font-weight:700}
+.modal-close{background:none;border:none;color:#94a3b8;font-size:20px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.modal-close:active{background:#162236}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-label{font-size:12px;font-weight:600;color:#94a3b8}
+.form-inp{background:#162236;border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#f1f5f9;font-family:inherit;font-size:14px;padding:11px 13px;outline:none;width:100%;min-height:44px;-webkit-appearance:none}
+.form-inp:focus{border-color:rgba(245,158,11,.5);background:#1a2840}
+.form-inp::placeholder{color:#334155}
+.form-select{background:#162236;border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#f1f5f9;font-family:inherit;font-size:14px;padding:11px 13px;outline:none;width:100%;min-height:44px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+.form-select:focus{border-color:rgba(245,158,11,.5)}
+.form-select option{background:#0f1929;color:#f1f5f9}
+.btn-submit{width:100%;background:#f59e0b;border:none;border-radius:12px;color:#000;font-family:inherit;font-size:15px;font-weight:800;padding:14px;cursor:pointer;min-height:50px;margin-top:4px}
+.btn-submit:active{opacity:.85}
+
+/* TOAST */
+.toast{position:fixed;bottom:calc(var(--bot) + env(safe-area-inset-bottom) + 12px);left:50%;transform:translateX(-50%) translateY(20px);background:#10b981;color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:99px;z-index:1200;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* BOTTOM NAV */
+.botnav{position:fixed;bottom:0;left:0;right:0;z-index:999;height:calc(var(--bot) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#0f1929;border-top:1px solid rgba(255,255,255,.07);display:flex}
+.bn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#334155;font-size:10px;font-weight:600;min-height:44px;cursor:pointer;border:none;background:none;font-family:inherit;transition:color .15s}
+.bn svg{stroke:currentColor}
+.bn.active{color:#f59e0b}
 
 @media(min-width:640px){
   .page{padding:20px;gap:16px;max-width:600px}
@@ -200,6 +228,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
   .metrics-grid{grid-template-columns:repeat(4,1fr)}
   .risk-grid{grid-template-columns:repeat(3,1fr)}
   .mkt-grid{grid-template-columns:repeat(3,1fr)}
+  .modal-sheet{left:auto;right:auto;width:500px;border-radius:20px 20px 0 0}
 }
 </style>
 </head>
@@ -215,9 +244,8 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
   </div>
   <div class="topbar-right">
     <div class="live-pill"><span class="live-dot"></span>CANLI</div>
-    <button class="icon-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      <span class="notif-dot">3</span>
+    <button class="icon-btn" onclick="openModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
     </button>
     <div class="avatar">R</div>
   </div>
@@ -228,19 +256,19 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 
   <section class="hero-card">
     <p class="hero-label">Toplam Portföy Değeri</p>
-    <div class="hero-value"><span class="hero-dollar">₺</span>2.847.392<span class="hero-dec">,50</span></div>
+    <div class="hero-value"><span class="hero-sym">₺</span><span id="hero-total">0</span></div>
     <div class="hero-change">
-      <span class="pill p-green">▲ +₺42.847 · +1,53%</span>
+      <span class="pill" id="hero-pill">—</span>
       <span class="hero-date">Bugün, 14 Haz</span>
     </div>
     <div class="hero-stats">
-      <div class="hs"><span class="hs-v green">+22,4%</span><span class="hs-l">Getiri</span></div>
+      <div class="hs"><span class="hs-v" id="hs-return">—</span><span class="hs-l">Getiri</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v green">14,8%</span><span class="hs-l">Yıllık %</span></div>
+      <div class="hs"><span class="hs-v" id="hs-gain">—</span><span class="hs-l">Kazanç</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v">1.74</span><span class="hs-l">Sharpe</span></div>
+      <div class="hs"><span class="hs-v" id="hs-count">0</span><span class="hs-l">Hisse</span></div>
       <div class="hdiv"></div>
-      <div class="hs"><span class="hs-v">0.88</span><span class="hs-l">Beta</span></div>
+      <div class="hs"><span class="hs-v" id="hs-day">—</span><span class="hs-l">Günlük</span></div>
     </div>
   </section>
 
@@ -249,11 +277,11 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
       <span class="tk"><b>BIST 100</b> 10.842 <em class="g">+1,34%</em></span>
       <span class="tk"><b>BIST 30</b> 11.248 <em class="g">+0,98%</em></span>
       <span class="tk"><b>USD/TRY</b> 38,42 <em class="r">+0,28%</em></span>
-      <span class="tk"><b>THYAO</b> ₺1.240 <em class="g">+2,34%</em></span>
       <span class="tk"><b>ALTIN</b> ₺4.124 <em class="g">+0,52%</em></span>
-      <span class="tk"><b>ASELS</b> ₺1.580 <em class="g">+3,42%</em></span>
-      <span class="tk"><b>BTC</b> $104.230 <em class="g">+2,14%</em></span>
       <span class="tk"><b>EUR/TRY</b> 41,84 <em class="r">+0,15%</em></span>
+      <span class="tk"><b>BTC</b> $104.230 <em class="g">+2,14%</em></span>
+      <span class="tk"><b>BRENT</b> $71,20 <em class="r">−1,34%</em></span>
+      <span class="tk"><b>TCMB</b> %46,00 <em style="color:#94a3b8">—</em></span>
     </div>
   </div>
 
@@ -269,19 +297,14 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
         <span class="leg"><i style="background:#475569"></i>BIST 100</span>
       </div>
     </div>
-    <div class="chart-box"><canvas id="perfChart"></canvas></div>
+    <div class="chart-box" style="height:180px"><canvas id="perfChart"></canvas></div>
   </div>
 
   <div class="metrics-grid">
-    <div class="mcard"><div class="mcard-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mcard-val green">+₺512B</div><div class="mcard-lbl">Toplam Kazanç</div></div>
-    <div class="mcard"><div class="mcard-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="mcard-val green">14,8%</div><div class="mcard-lbl">Yıllık Getiri</div></div>
-    <div class="mcard"><div class="mcard-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mcard-val">1.74</div><div class="mcard-lbl">Sharpe Oranı</div></div>
-    <div class="mcard"><div class="mcard-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mcard-val red">−12,8%</div><div class="mcard-lbl">Maks. Düşüş</div></div>
-  </div>
-
-  <div class="card">
-    <div class="card-row"><div style="font-size:14px;font-weight:700">Son İşlemler</div><a class="link-sm" href="#">Tümü</a></div>
-    <div class="acts" id="acts-home"></div>
+    <div class="mcard"><div class="mcard-icon ic-a"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" width="16" height="16"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mcard-val green" id="mc-gain">—</div><div class="mcard-lbl">Toplam Kazanç</div></div>
+    <div class="mcard"><div class="mcard-icon ic-g"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="mcard-val green" id="mc-ret">—</div><div class="mcard-lbl">Toplam Getiri</div></div>
+    <div class="mcard"><div class="mcard-icon ic-b"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mcard-val" id="mc-cnt">0</div><div class="mcard-lbl">Portföydeki Varlık</div></div>
+    <div class="mcard"><div class="mcard-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mcard-val" id="mc-day">—</div><div class="mcard-lbl">Günlük Kazanç</div></div>
   </div>
 
 </div>
@@ -289,17 +312,17 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 <!-- ═══════════════ PAGE: PORTFOLIO ═══════════════ -->
 <div class="page" id="pg-portfolio">
 
-  <div class="card">
-    <div class="card-row" style="margin-bottom:14px">
-      <div style="font-size:14px;font-weight:700">Hisseler &amp; Fonlar</div>
-      <div class="search-row" style="flex:1;max-width:220px">
-        <input class="search-inp" id="hsearch" type="text" placeholder="Ara…"/>
-      </div>
+  <div class="card" id="holdings-card">
+    <div class="card-row" style="margin-bottom:12px;flex-wrap:nowrap;gap:8px">
+      <div style="font-size:14px;font-weight:700;flex-shrink:0">Varlıklarım</div>
+      <input class="search-inp" id="hsearch" type="text" placeholder="Ara…" style="flex:1;max-width:160px"/>
+      <button class="btn-sm btn-amber" onclick="openModal()">+ Ekle</button>
+      <button class="btn-sm btn-slate" id="editBtn" onclick="toggleEdit()">Düzenle</button>
     </div>
     <div class="table-wrap">
       <table class="htbl" id="htbl">
-        <thead><tr><th>Varlık</th><th class="tr">Fiyat</th><th class="tr">1G%</th><th class="tr">Değer</th></tr></thead>
-        <tbody></tbody>
+        <thead><tr><th>Varlık</th><th class="tr">Fiyat</th><th class="tr">1G%</th><th class="tr">Değer</th><th></th></tr></thead>
+        <tbody id="htbl-body"></tbody>
       </table>
     </div>
   </div>
@@ -308,19 +331,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
     <div style="font-size:14px;font-weight:700;margin-bottom:14px">Sektör Dağılımı</div>
     <div class="donut-area">
       <canvas id="donut" width="140" height="140"></canvas>
-      <div class="donut-lbl"><div class="dl-v">₺2,8M</div><div class="dl-s">Toplam</div></div>
+      <div class="donut-lbl"><div class="dl-v" id="donut-lbl-v">₺0</div><div class="dl-s">Toplam</div></div>
     </div>
     <div class="alloc-rows" id="allocRows"></div>
   </div>
 
   <div class="card">
     <div style="font-size:14px;font-weight:700;margin-bottom:14px">Performans Özeti</div>
-    <div class="perf-row"><span class="perf-label">Ortalama Maliyet</span><span class="perf-val">₺2.328.400</span></div>
-    <div class="perf-row"><span class="perf-label">Güncel Değer</span><span class="perf-val">₺2.847.392</span></div>
-    <div class="perf-row"><span class="perf-label">Toplam Kazanç</span><span class="perf-val" style="color:#10b981">+₺518.992</span></div>
-    <div class="perf-row"><span class="perf-label">Toplam Getiri</span><span class="perf-val" style="color:#10b981">+22,30%</span></div>
-    <div class="perf-row"><span class="perf-label">Günlük Kazanç</span><span class="perf-val" style="color:#10b981">+₺42.847</span></div>
-    <div class="perf-row"><span class="perf-label">Temettü Geliri (YTD)</span><span class="perf-val">₺84.320</span></div>
+    <div class="perf-row"><span class="perf-label">Ortalama Maliyet</span><span class="perf-val" id="ps-cost">₺0</span></div>
+    <div class="perf-row"><span class="perf-label">Güncel Değer</span><span class="perf-val" id="ps-val">₺0</span></div>
+    <div class="perf-row"><span class="perf-label">Toplam Kazanç</span><span class="perf-val" id="ps-gain">—</span></div>
+    <div class="perf-row"><span class="perf-label">Toplam Getiri</span><span class="perf-val" id="ps-ret">—</span></div>
+    <div class="perf-row"><span class="perf-label">Günlük Değişim</span><span class="perf-val" id="ps-day">—</span></div>
   </div>
 
   <div class="card">
@@ -368,10 +390,10 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
   <div class="card">
     <div class="section-label">Faiz &amp; Tahvil</div>
     <div class="mkt-grid">
-      <div class="mkt-item"><div class="mkt-sym">TCMB FAİZ</div><div class="mkt-price">46,00%</div><div class="mkt-chg" style="color:#94a3b8">değişmedi</div></div>
-      <div class="mkt-item"><div class="mkt-sym">10Y DİBS</div><div class="mkt-price">42,80%</div><div class="mkt-chg r">+0,15</div></div>
-      <div class="mkt-item"><div class="mkt-sym">2Y DİBS</div><div class="mkt-price">44,20%</div><div class="mkt-chg r">+0,08</div></div>
-      <div class="mkt-item"><div class="mkt-sym">TÜFE (YoY)</div><div class="mkt-price">38,20%</div><div class="mkt-chg r">+0,40</div></div>
+      <div class="mkt-item"><div class="mkt-sym">TCMB FAİZ</div><div class="mkt-price">%46,00</div><div class="mkt-chg" style="color:#94a3b8">değişmedi</div></div>
+      <div class="mkt-item"><div class="mkt-sym">10Y DİBS</div><div class="mkt-price">%42,80</div><div class="mkt-chg r">+0,15</div></div>
+      <div class="mkt-item"><div class="mkt-sym">2Y DİBS</div><div class="mkt-price">%44,20</div><div class="mkt-chg r">+0,08</div></div>
+      <div class="mkt-item"><div class="mkt-sym">TÜFE (YoY)</div><div class="mkt-price">%38,20</div><div class="mkt-chg r">+0,40</div></div>
     </div>
   </div>
 
@@ -391,8 +413,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
 <div class="page" id="pg-watchlist">
 
   <div class="card">
-    <div class="card-row"><div style="font-size:14px;font-weight:700">Takip Listem</div><button class="btn-add" style="margin-left:auto">+ Ekle</button></div>
-    <div id="watchList"></div>
+    <div class="card-row"><div style="font-size:14px;font-weight:700">Takip Listesi</div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">TCELL</div><div class="watch-name">Turkcell</div></div><div class="watch-right"><div class="watch-price">₺108,40</div><div class="watch-chg g">+1,24%</div></div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">PGSUS</div><div class="watch-name">Pegasus Hava Yolları</div></div><div class="watch-right"><div class="watch-price">₺584,20</div><div class="watch-chg r">−0,88%</div></div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">FROTO</div><div class="watch-name">Ford Otosan</div></div><div class="watch-right"><div class="watch-price">₺1.842</div><div class="watch-chg g">+2,14%</div></div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">TOASO</div><div class="watch-name">Tofaş Oto. Fab.</div></div><div class="watch-right"><div class="watch-price">₺692,50</div><div class="watch-chg g">+0,44%</div></div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">VESTL</div><div class="watch-name">Vestel Elektronik</div></div><div class="watch-right"><div class="watch-price">₺98,20</div><div class="watch-chg g">+3,21%</div></div></div>
+    <div class="watch-item"><div class="watch-info"><div class="watch-sym">EKGYO</div><div class="watch-name">Emlak Konut GYO</div></div><div class="watch-right"><div class="watch-price">₺48,50</div><div class="watch-chg g">+1,87%</div></div></div>
   </div>
 
   <div class="card">
@@ -427,9 +454,9 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
       <div class="setting-row"><div class="setting-icon ic-r"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="setting-info"><div class="setting-title">Kıyaslama Endeksi</div><div class="setting-sub">BIST 100</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
     <div class="settings-section">
-      <div class="settings-label">Hesap</div>
+      <div class="settings-label">Veri</div>
+      <div class="setting-row" onclick="clearAll()" style="cursor:pointer"><div class="setting-icon" style="background:rgba(244,63,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></div><div class="setting-info"><div class="setting-title" style="color:#f43f5e">Portföyü Sıfırla</div><div class="setting-sub">Tüm varlıkları sil</div></div></div>
       <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="setting-info"><div class="setting-title">Profili Düzenle</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="setting-row"><div class="setting-icon" style="background:rgba(148,163,184,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" width="17" height="17"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div class="setting-info"><div class="setting-title">Güvenlik &amp; Gizlilik</div></div><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></div>
       <div class="setting-row"><div class="setting-icon" style="background:rgba(244,63,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" width="17" height="17"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div class="setting-info"><div class="setting-title" style="color:#f43f5e">Çıkış Yap</div></div></div>
     </div>
   </div>
@@ -445,93 +472,411 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#080e1a;color:#f1f5
   <button class="bn" data-page="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>Daha</span></button>
 </nav>
 
+<!-- ADD HOLDING MODAL -->
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-hdr">
+      <span class="modal-title">Varlık Ekle</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <form id="addForm" onsubmit="submitHolding(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Sembol</label>
+          <input class="form-inp" id="f-sym" type="text" placeholder="THYAO" maxlength="10" autocomplete="off" autocapitalize="characters" style="text-transform:uppercase"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Sektör</label>
+          <select class="form-select" id="f-sector">
+            <option value="Bankacılık">Bankacılık</option>
+            <option value="Savunma">Savunma</option>
+            <option value="Havacılık">Havacılık</option>
+            <option value="Holding">Holding</option>
+            <option value="Enerji">Enerji</option>
+            <option value="Teknoloji">Teknoloji</option>
+            <option value="Perakende">Perakende</option>
+            <option value="Sağlık">Sağlık</option>
+            <option value="İnşaat/GYO">İnşaat/GYO</option>
+            <option value="Otomotiv">Otomotiv</option>
+            <option value="Yatırım Fonu">Yatırım Fonu</option>
+            <option value="Diğer" selected>Diğer</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Şirket / Fon Adı</label>
+        <input class="form-inp" id="f-name" type="text" placeholder="Türk Hava Yolları" autocomplete="off"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Güncel Fiyat (₺)</label>
+          <input class="form-inp" id="f-price" type="number" placeholder="0" step="0.01" min="0" inputmode="decimal"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Lot / Adet</label>
+          <input class="form-inp" id="f-shares" type="number" placeholder="0" step="1" min="0" inputmode="numeric"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ort. Maliyet (₺)</label>
+          <input class="form-inp" id="f-cost" type="number" placeholder="0" step="0.01" min="0" inputmode="decimal"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Günlük Değ. (%)</label>
+          <input class="form-inp" id="f-chg" type="number" placeholder="0.00" step="0.01" inputmode="decimal"/>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">Portföye Ekle</button>
+    </form>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-const HOLDINGS=[
-  {sym:'THYAO', name:'Türk Hava Yolları', price:1240.50, shares:410, chg:+2.34},
-  {sym:'GARAN', name:'Garanti BBVA',       price:485.20,  shares:380, chg:+1.18},
-  {sym:'KCHOL', name:'Koç Holding',        price:892.40,  shares:180, chg:-0.54},
-  {sym:'ASELS', name:'Aselsan A.Ş.',       price:1580.90, shares:95,  chg:+3.42},
-  {sym:'BIMAS', name:'BİM Mağazalar',      price:742.80,  shares:200, chg:+0.87},
-  {sym:'SAHOL', name:'Sabancı Holding',    price:674.30,  shares:220, chg:-1.23},
-  {sym:'TUPRS', name:'Tüpraş',             price:1124.60, shares:120, chg:+0.61},
-  {sym:'AKBNK', name:'Akbank T.A.Ş.',      price:352.40,  shares:350, chg:+1.74},
-  {sym:'EREGL', name:'Ereğli D. Çelik',   price:195.80,  shares:600, chg:-0.38},
-  {sym:'SISE',  name:'Şişecam A.Ş.',      price:128.50,  shares:800, chg:+0.92},
-];
+'use strict';
 
-const ALLOC=[
-  {name:'Bankacılık', pct:30.5, color:'#f59e0b'},
-  {name:'Savunma',    pct:14.8, color:'#f43f5e'},
-  {name:'Havacılık',  pct:14.2, color:'#10b981'},
-  {name:'Holding',    pct:13.4, color:'#3b82f6'},
-  {name:'Enerji',     pct:9.8,  color:'#8b5cf6'},
-  {name:'Diğer',      pct:17.3, color:'#475569'},
-];
+/* ── SECTOR COLORS ─────────────────────────── */
+const SECTOR_COLORS = {
+  'Bankacılık':   '#f59e0b',
+  'Savunma':      '#f43f5e',
+  'Havacılık':    '#10b981',
+  'Holding':      '#3b82f6',
+  'Enerji':       '#8b5cf6',
+  'Teknoloji':    '#06b6d4',
+  'Perakende':    '#ec4899',
+  'Sağlık':       '#14b8a6',
+  'İnşaat/GYO':  '#f97316',
+  'Otomotiv':     '#a78bfa',
+  'Yatırım Fonu': '#34d399',
+  'Diğer':        '#475569',
+};
 
-const ACTS=[
-  {type:'buy',  sym:'THYAO', desc:'50 lot alındı',    date:'14 Haz', amt:'+₺62.025', pos:true },
-  {type:'sell', sym:'EKGYO', desc:'500 lot satıldı',  date:'12 Haz', amt:'−₺24.250', pos:false},
-  {type:'div',  sym:'GARAN', desc:'Temettü',          date:'10 Haz', amt:'+₺1.824',  pos:true },
-  {type:'buy',  sym:'ASELS', desc:'10 lot alındı',    date:'7 Haz',  amt:'+₺15.809', pos:true },
-  {type:'div',  sym:'AKBNK', desc:'Temettü',          date:'4 Haz',  amt:'+₺880',    pos:true },
-];
-
+/* ── RISK METRICS (static) ─────────────────── */
 const RISKS=[
-  {lbl:'Maks. Düşüş',    val:'−12,84%', cls:'r', pct:34, color:'#f43f5e'},
-  {lbl:'Volatilite',     val:'18,4%',   cls:'',  pct:50, color:'#f59e0b'},
-  {lbl:'Kazanma Oranı',  val:'63,2%',   cls:'g', pct:63, color:'#10b981'},
-  {lbl:'Sortino',        val:'2,14',    cls:'g', pct:71, color:'#10b981'},
-  {lbl:'VaR 95%',        val:'−3,42%',  cls:'r', pct:28, color:'#f43f5e'},
-  {lbl:'Korel. BIST100', val:'0,82',    cls:'',  pct:82, color:'#3b82f6'},
+  {lbl:'Maks. Düşüş',    val:'—', cls:'r', pct:0,  color:'#f43f5e'},
+  {lbl:'Volatilite',     val:'—', cls:'',  pct:0,  color:'#f59e0b'},
+  {lbl:'Kazanma Oranı',  val:'—', cls:'g', pct:0,  color:'#10b981'},
+  {lbl:'Sortino',        val:'—', cls:'g', pct:0,  color:'#10b981'},
+  {lbl:'VaR 95%',        val:'—', cls:'r', pct:0,  color:'#f43f5e'},
+  {lbl:'Korel. BIST100', val:'—', cls:'',  pct:0,  color:'#3b82f6'},
 ];
 
-const WATCH=[
-  {sym:'TCELL', name:'Turkcell',           price:108.40,  chg:+1.24},
-  {sym:'PGSUS', name:'Pegasus Hava Yolları',price:584.20, chg:-0.88},
-  {sym:'FROTO', name:'Ford Otosan',        price:1842.00, chg:+2.14},
-  {sym:'TOASO', name:'Tofaş Oto. Fab.',   price:692.50,  chg:+0.44},
-  {sym:'VESTL', name:'Vestel Elektronik', price:98.20,   chg:+3.21},
-  {sym:'EKGYO', name:'Emlak Konut GYO',   price:48.50,   chg:+1.87},
-];
+/* ── STORAGE ────────────────────────────────── */
+const LS_KEY = 'qe_holdings_v1';
+let HOLDINGS = [];
 
-const fmt=(n,d=2)=>n.toLocaleString('tr-TR',{minimumFractionDigits:d,maximumFractionDigits:d});
+function load() {
+  try { HOLDINGS = JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch(e) { HOLDINGS=[]; }
+}
+function save() {
+  localStorage.setItem(LS_KEY, JSON.stringify(HOLDINGS));
+}
 
-// NAV
-document.querySelectorAll('.bn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const pg=btn.dataset.page;
+/* ── FORMAT ─────────────────────────────────── */
+const fmt = (n, d=2) => n.toLocaleString('tr-TR', {minimumFractionDigits:d, maximumFractionDigits:d});
+function fmtMoney(n) {
+  if (Math.abs(n) >= 1e6) return '₺' + fmt(n/1e6, 2) + 'M';
+  if (Math.abs(n) >= 1e3) return '₺' + fmt(n/1e3, 1) + 'B';
+  return '₺' + fmt(n, 0);
+}
+
+/* ── COMPUTED ────────────────────────────────── */
+function calcPortfolio() {
+  let totalVal = 0, totalCost = 0, dayGain = 0;
+  HOLDINGS.forEach(h => {
+    const val = h.price * h.shares;
+    totalVal  += val;
+    totalCost += h.cost * h.shares;
+    dayGain   += val * (h.chg / 100);
+  });
+  const totalGain  = totalVal - totalCost;
+  const totalRet   = totalCost > 0 ? (totalGain / totalCost) * 100 : 0;
+  const dayRet     = totalVal > 0  ? (dayGain  / totalVal)  * 100 : 0;
+  return { totalVal, totalCost, totalGain, totalRet, dayGain, dayRet };
+}
+
+/* ── UPDATE HERO ─────────────────────────────── */
+function updateHero() {
+  const p = calcPortfolio();
+  const { totalVal, totalGain, totalRet, dayGain, dayRet } = p;
+
+  document.getElementById('hero-total').textContent = fmt(totalVal, 0);
+
+  const pill = document.getElementById('hero-pill');
+  const dayPos = dayGain >= 0;
+  pill.className = 'pill ' + (dayPos ? 'p-green' : 'p-red');
+  pill.textContent = (dayPos?'▲ +':'▼ ') + '₺' + fmt(Math.abs(dayGain), 0) + ' · ' + (dayPos?'+':'') + fmt(dayRet, 2) + '%';
+
+  const retEl = document.getElementById('hs-return');
+  retEl.className = 'hs-v ' + (totalRet >= 0 ? 'green' : 'red');
+  retEl.textContent = (totalRet >= 0?'+':'') + fmt(totalRet, 2) + '%';
+
+  const gainEl = document.getElementById('hs-gain');
+  gainEl.className = 'hs-v ' + (totalGain >= 0 ? 'green' : 'red');
+  gainEl.textContent = fmtMoney(totalGain);
+
+  document.getElementById('hs-count').textContent = HOLDINGS.length;
+
+  const dayEl = document.getElementById('hs-day');
+  dayEl.className = 'hs-v ' + (dayGain >= 0 ? 'green' : 'red');
+  dayEl.textContent = (dayGain >= 0?'+':'') + fmt(dayRet, 2) + '%';
+
+  // metric cards
+  const mcGain = document.getElementById('mc-gain');
+  mcGain.className = 'mcard-val ' + (totalGain >= 0 ? 'green' : 'red');
+  mcGain.textContent = (totalGain >= 0 ? '+' : '') + fmtMoney(totalGain);
+
+  const mcRet = document.getElementById('mc-ret');
+  mcRet.className = 'mcard-val ' + (totalRet >= 0 ? 'green' : 'red');
+  mcRet.textContent = (totalRet >= 0 ? '+' : '') + fmt(totalRet, 2) + '%';
+
+  document.getElementById('mc-cnt').textContent = HOLDINGS.length;
+
+  const mcDay = document.getElementById('mc-day');
+  mcDay.className = 'mcard-val ' + (dayGain >= 0 ? 'green' : 'red');
+  mcDay.textContent = (dayGain >= 0 ? '+' : '') + fmtMoney(dayGain);
+}
+
+/* ── UPDATE PERFORMANCE SUMMARY ─────────────── */
+function updateSummary() {
+  const { totalVal, totalCost, totalGain, totalRet, dayGain, dayRet } = calcPortfolio();
+
+  document.getElementById('ps-cost').textContent = '₺' + fmt(totalCost, 0);
+  document.getElementById('ps-val').textContent  = '₺' + fmt(totalVal, 0);
+
+  const gainEl = document.getElementById('ps-gain');
+  gainEl.textContent = (totalGain >= 0 ? '+' : '') + '₺' + fmt(totalGain, 0);
+  gainEl.style.color = totalGain >= 0 ? '#10b981' : '#f43f5e';
+
+  const retEl = document.getElementById('ps-ret');
+  retEl.textContent = (totalRet >= 0 ? '+' : '') + fmt(totalRet, 2) + '%';
+  retEl.style.color = totalRet >= 0 ? '#10b981' : '#f43f5e';
+
+  const dayEl = document.getElementById('ps-day');
+  dayEl.textContent = (dayGain >= 0 ? '+' : '') + '₺' + fmt(dayGain, 0) + ' (' + (dayGain >= 0 ? '+' : '') + fmt(dayRet, 2) + '%)';
+  dayEl.style.color = dayGain >= 0 ? '#10b981' : '#f43f5e';
+}
+
+/* ── HOLDINGS TABLE ──────────────────────────── */
+let editMode = false;
+function toggleEdit() {
+  editMode = !editMode;
+  document.getElementById('htbl').classList.toggle('edit-mode', editMode);
+  document.getElementById('editBtn').textContent = editMode ? 'Tamam' : 'Düzenle';
+  document.getElementById('editBtn').className = editMode ? 'btn-sm btn-amber' : 'btn-sm btn-slate';
+}
+
+function deleteHolding(idx) {
+  if (!confirm('Bu varlığı silmek istiyor musunuz?')) return;
+  HOLDINGS.splice(idx, 1);
+  save();
+  renderAll();
+  showToast('Varlık silindi');
+}
+
+function renderHoldings(q='') {
+  const tbody = document.getElementById('htbl-body');
+  if (!tbody) return;
+
+  if (HOLDINGS.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" width="40" height="40"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        <p>Henüz varlık eklenmedi</p>
+        <small>Sağ üstteki <b>+</b> butonuna tıklayın</small>
+      </div>
+    </td></tr>`;
+    return;
+  }
+
+  const list = HOLDINGS.map((h,i)=>({...h,i})).filter(h =>
+    h.sym.toLowerCase().includes(q.toLowerCase()) ||
+    h.name.toLowerCase().includes(q.toLowerCase())
+  );
+
+  tbody.innerHTML = list.map(h => {
+    const val = h.price * h.shares;
+    const c = h.chg >= 0 ? '#10b981' : '#f43f5e';
+    return `<tr>
+      <td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td>
+      <td class="tr">₺${fmt(h.price)}</td>
+      <td class="tr" style="color:${c}">${h.chg>=0?'+':''}${fmt(h.chg, 2)}%</td>
+      <td class="tr">₺${fmt(val,0)}</td>
+      <td><button class="del-btn" onclick="deleteHolding(${h.i})">×</button></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── DONUT CHART ─────────────────────────────── */
+let donutChart = null;
+function updateDonut() {
+  const { totalVal } = calcPortfolio();
+
+  // Group by sector
+  const groups = {};
+  HOLDINGS.forEach(h => {
+    const sec = h.sector || 'Diğer';
+    if (!groups[sec]) groups[sec] = 0;
+    groups[sec] += h.price * h.shares;
+  });
+
+  const labels = Object.keys(groups);
+  const data   = labels.map(l => groups[l]);
+  const colors = labels.map(l => SECTOR_COLORS[l] || '#475569');
+
+  const lblV = document.getElementById('donut-lbl-v');
+  if (totalVal >= 1e6) lblV.textContent = '₺' + fmt(totalVal/1e6, 1) + 'M';
+  else if (totalVal >= 1e3) lblV.textContent = '₺' + fmt(totalVal/1e3, 0) + 'B';
+  else lblV.textContent = '₺' + fmt(totalVal, 0);
+
+  if (donutChart) {
+    donutChart.data.labels = labels;
+    donutChart.data.datasets[0].data = data;
+    donutChart.data.datasets[0].backgroundColor = colors;
+    donutChart.update();
+  } else {
+    const de = document.getElementById('donut');
+    if (!de) return;
+    donutChart = new Chart(de, {
+      type:'doughnut',
+      data:{labels, datasets:[{data, backgroundColor:colors, borderColor:'#111d2e', borderWidth:3, hoverOffset:4}]},
+      options:{responsive:false, cutout:'72%', plugins:{legend:{display:false}, tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10, callbacks:{label:c=>{const pct=totalVal>0?(c.parsed/totalVal*100).toFixed(1):'0';return ` ${c.label}: ${pct}%`}}}}}
+    });
+  }
+
+  const ar = document.getElementById('allocRows');
+  if (ar) {
+    if (labels.length === 0) { ar.innerHTML = '<div style="text-align:center;color:#334155;font-size:12px;padding:10px">Varlık yok</div>'; return; }
+    ar.innerHTML = labels.map((l,i) => {
+      const pct = totalVal > 0 ? (data[i]/totalVal*100).toFixed(1) : '0';
+      return `<div class="al-row">
+        <span class="al-dot" style="background:${colors[i]}"></span>
+        <span class="al-name">${l}</span>
+        <div class="al-bar"><div class="al-fill" style="width:${pct}%;background:${colors[i]}"></div></div>
+        <span class="al-pct">${pct}%</span>
+      </div>`;
+    }).join('');
+  }
+}
+
+/* ── RISK GRID ───────────────────────────────── */
+function renderRisk() {
+  const rg = document.getElementById('riskGrid');
+  if (!rg) return;
+  rg.innerHTML = RISKS.map(r=>`
+    <div class="ri">
+      <div class="ri-lbl">${r.lbl}</div>
+      <div class="ri-val ${r.cls}">${r.val}</div>
+      <div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div>
+    </div>`).join('');
+  setTimeout(()=>rg.querySelectorAll('.ri-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),400);
+}
+
+/* ── RENDER ALL ──────────────────────────────── */
+function renderAll() {
+  const q = document.getElementById('hsearch')?.value || '';
+  renderHoldings(q);
+  updateHero();
+  updateSummary();
+  updateDonut();
+}
+
+/* ── MODAL ───────────────────────────────────── */
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(()=>document.getElementById('f-sym').focus(), 350);
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('addForm').reset();
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+function submitHolding(e) {
+  e.preventDefault();
+  const sym    = document.getElementById('f-sym').value.trim().toUpperCase();
+  const name   = document.getElementById('f-name').value.trim();
+  const sector = document.getElementById('f-sector').value;
+  const price  = parseFloat(document.getElementById('f-price').value) || 0;
+  const shares = parseFloat(document.getElementById('f-shares').value) || 0;
+  const cost   = parseFloat(document.getElementById('f-cost').value) || price;
+  const chg    = parseFloat(document.getElementById('f-chg').value) || 0;
+
+  if (!sym || !name || price <= 0 || shares <= 0) {
+    alert('Sembol, ad, fiyat ve lot bilgisi zorunludur.');
+    return;
+  }
+
+  HOLDINGS.push({ sym, name, sector, price, shares, cost, chg });
+  save();
+  closeModal();
+  renderAll();
+  showToast(sym + ' portföye eklendi ✓');
+}
+
+/* ── TOAST ───────────────────────────────────── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+/* ── CLEAR ALL ───────────────────────────────── */
+function clearAll() {
+  if (!confirm('Tüm varlıklar silinecek. Emin misiniz?')) return;
+  HOLDINGS = [];
+  save();
+  renderAll();
+  showToast('Portföy sıfırlandı');
+}
+
+/* ── NAV ─────────────────────────────────────── */
+document.querySelectorAll('.bn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pg = btn.dataset.page;
     document.querySelectorAll('.bn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('pg-'+pg).classList.add('active');
-    window.scrollTo(0,0);
+    document.getElementById('pg-' + pg).classList.add('active');
+    window.scrollTo(0, 0);
   });
 });
 
-// PERIOD TABS
-document.querySelectorAll('.per').forEach(btn=>{
-  btn.addEventListener('click',()=>{
+/* ── PERIOD TABS ─────────────────────────────── */
+document.querySelectorAll('.per').forEach(btn => {
+  btn.addEventListener('click', () => {
     document.querySelectorAll('.per').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
   });
 });
 
-// TICKER
-const tk=document.getElementById('ticker');
-if(tk)tk.innerHTML+=tk.innerHTML;
+/* ── TICKER ──────────────────────────────────── */
+const tk = document.getElementById('ticker');
+if (tk) tk.innerHTML += tk.innerHTML;
 
-// PERF CHART
-function makeSeries(s,n){const d=[s];for(let i=1;i<n;i++)d.push(+(d[d.length-1]*(1+(Math.random()-.43)*.018)).toFixed(4));return d;}
-window.addEventListener('load',()=>{
-  Chart.defaults.color='#94a3b8';
-  Chart.defaults.borderColor='rgba(255,255,255,0.05)';
-  Chart.defaults.font.family="'Inter',sans-serif";
-  Chart.defaults.font.size=10;
+/* ── SEARCH ──────────────────────────────────── */
+document.getElementById('hsearch')?.addEventListener('input', e => renderHoldings(e.target.value));
 
-  const el=document.getElementById('perfChart');
-  if(el){
-    const ctx=el.getContext('2d'),n=30;
+/* ── PERF CHART ──────────────────────────────── */
+window.addEventListener('load', () => {
+  Chart.defaults.color = '#94a3b8';
+  Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+  Chart.defaults.font.family = "'Inter',sans-serif";
+  Chart.defaults.font.size = 10;
+
+  const el = document.getElementById('perfChart');
+  if (el) {
+    function makeSeries(s,n){const d=[s];for(let i=1;i<n;i++)d.push(+(d[d.length-1]*(1+(Math.random()-.43)*.018)).toFixed(4));return d;}
+    const ctx=el.getContext('2d'), n=30;
     const port=makeSeries(.80,n), bench=makeSeries(.84,n);
     port[n-1]=1.2240; bench[n-1]=1.1080;
     const g=ctx.createLinearGradient(0,0,0,180);
@@ -549,94 +894,17 @@ window.addEventListener('load',()=>{
       options:{
         responsive:true,maintainAspectRatio:false,
         interaction:{mode:'index',intersect:false},
-        plugins:{
-          legend:{display:false},
-          tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,
-            callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}
-        },
-        scales:{
-          x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},
-          y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}
-        }
+        plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(2)}%`}}},
+        scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{maxTicksLimit:5}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{callback:v=>(v>=0?'+':'')+v.toFixed(0)+'%'}}}
       }
     });
   }
 
-  // DONUT
-  const de=document.getElementById('donut');
-  if(de){
-    new Chart(de,{
-      type:'doughnut',
-      data:{labels:ALLOC.map(a=>a.name),datasets:[{data:ALLOC.map(a=>a.pct),backgroundColor:ALLOC.map(a=>a.color),borderColor:'#111d2e',borderWidth:3,hoverOffset:4}]},
-      options:{responsive:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{backgroundColor:'#111d2e',borderColor:'rgba(255,255,255,.1)',borderWidth:1,padding:10,callbacks:{label:c=>` ${c.label}: ${c.parsed.toFixed(1)}%`}}}}
-    });
-  }
-  const ar=document.getElementById('allocRows');
-  if(ar)ar.innerHTML=ALLOC.map(a=>`
-    <div class="al-row">
-      <span class="al-dot" style="background:${a.color}"></span>
-      <span class="al-name">${a.name}</span>
-      <div class="al-bar"><div class="al-fill" style="width:${a.pct}%;background:${a.color}"></div></div>
-      <span class="al-pct">${a.pct}%</span>
-    </div>`).join('');
+  // Initial render
+  load();
+  renderRisk();
+  renderAll();
 });
-
-// HOLDINGS TABLE
-function renderHoldings(q=''){
-  const tbody=document.querySelector('#htbl tbody');
-  if(!tbody)return;
-  const list=HOLDINGS.filter(h=>h.sym.toLowerCase().includes(q.toLowerCase())||h.name.toLowerCase().includes(q.toLowerCase()));
-  tbody.innerHTML=list.map(h=>{
-    const val=h.price*h.shares, c=h.chg>=0?'#10b981':'#f43f5e';
-    return `<tr>
-      <td><span class="sym">${h.sym}</span><span class="nm">${h.name}</span></td>
-      <td class="tr">₺${fmt(h.price)}</td>
-      <td class="tr" style="color:${c}">${h.chg>=0?'+':''}${h.chg.toFixed(2)}%</td>
-      <td class="tr">₺${fmt(val,0)}</td>
-    </tr>`;
-  }).join('');
-}
-renderHoldings();
-const inp=document.getElementById('hsearch');
-if(inp)inp.addEventListener('input',()=>renderHoldings(inp.value));
-
-// ACTIVITY
-const actEl=document.getElementById('acts-home');
-if(actEl)actEl.innerHTML=ACTS.map(a=>{
-  const bc=a.type==='buy'?'ab-buy':a.type==='sell'?'ab-sell':'ab-div';
-  const lbl=a.type==='buy'?'AL':a.type==='sell'?'SAT':'TEM';
-  const ac=a.pos?'color:#10b981':'color:#f43f5e';
-  return `<div class="act">
-    <div class="act-badge ${bc}">${lbl}</div>
-    <div class="act-info"><div class="act-sym">${a.sym}</div><div class="act-desc">${a.desc} · ${a.date}</div></div>
-    <div class="act-amt" style="${ac}">${a.amt}</div>
-  </div>`;
-}).join('');
-
-// RISK
-const rg=document.getElementById('riskGrid');
-if(rg){
-  rg.innerHTML=RISKS.map(r=>`
-    <div class="ri">
-      <div class="ri-lbl">${r.lbl}</div>
-      <div class="ri-val ${r.cls}">${r.val}</div>
-      <div class="ri-bar"><div class="ri-fill" data-w="${r.pct}" style="background:${r.color}"></div></div>
-    </div>`).join('');
-  setTimeout(()=>rg.querySelectorAll('.ri-fill').forEach(f=>{f.style.width=f.dataset.w+'%';}),400);
-}
-
-// WATCHLIST
-const wl=document.getElementById('watchList');
-if(wl)wl.innerHTML=WATCH.map(w=>{
-  const c=w.chg>=0?'#10b981':'#f43f5e';
-  return `<div class="watch-item">
-    <div class="watch-info"><div class="watch-sym">${w.sym}</div><div class="watch-name">${w.name}</div></div>
-    <div class="watch-right">
-      <div class="watch-price">₺${fmt(w.price)}</div>
-      <div class="watch-chg" style="color:${c}">${w.chg>=0?'+':''}${w.chg.toFixed(2)}%</div>
-    </div>
-  </div>`;
-}).join('');
 </script>
 </body>
 </html>
